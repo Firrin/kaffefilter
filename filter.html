@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles.css">
+  <title>Kaffekapslen</title>
+</head>
+<body>
+<header><img src="images/header.jpg" alt=""></header>
+<section class="container">
+
+
+<label for=""><select class="" name=""><option disabled selected>Styrke</option></select></label>
+<label for=""><select class="" name=""><option disabled selected>Størrelse</option></select></label>
+<label for=""><select class="" name=""><option disabled selected>Kvalitet</option></select></label>
+<label for=""><select class="" name=""><option disabled selected>Type</option></select></label>
+<label for=""><select class="" name=""><option disabled selected>Sortering</option></select></label>
+<div class="container__checkboxes">
+<label><input type="checkbox"/> Økologisk</label>
+<label><input type="checkbox"/> Frugtig</label>
+<label><input type="checkbox"/> Mørkristet</label>
+
+<label><input type="checkbox"/> Aromatisk Arabica</label>
+<label><input type="checkbox"/> Chokolade</label>
+<label><input type="checkbox"/> Lakrids</label>
+
+<label><input type="checkbox"/> Koffeinfri</label>
+<label><input type="checkbox"/> Karamel</label>
+<label><input type="checkbox"/> The</label>
+
+<!-- <input type="checkbox"> <label for="">Syrlighed</label> -->
+</div>
+<button type="button" id="search" class="container__checkboxes__submit">Søg</button>
+
+
+<hr>
+<p id="results"></p>
+<a href=""></a>
+<article>
+<p id="demo"></p>
+<img src="" alt="" class="image" id="image">
+
+</article>
+</section>
+<script>
+document.getElementById("search").addEventListener("click", loadXMLDoc);
+function loadXMLDoc(){
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+    resultcount(this);
+    myFunction(this);
+    getimage(this);
+
+    }
+};
+xhttp.open("GET", "GoogleShoppingDK.xml", true);
+xhttp.send();
+};
+ function myFunction(xml) {
+    var x, i, txt, xmlDoc, y;
+    xmlDoc = xml.responseXML;
+    txt = "";
+    x = xmlDoc.getElementsByTagName("title");
+    // z = xmlDoc.getElementsByTagName("g:price");
+    for (i = 0; i < x.length; i++) {
+      txt += x[i].childNodes[0].nodeValue + "<br>";
+    }
+document.getElementById("demo").innerHTML = txt;
+};
+function getimage(xml) {
+  var x, i, path, xmlDoc;
+  xmlDoc = xml.responseXML;
+  path = "";
+  y = xmlDoc.getElementsByTagName("g:image_link");
+  for (i = 0; i < y.length; i++) {
+    path = y[i].childNodes[0].nodeValue;
+    document.getElementById("image").src = path;
+  }
+  };
+function resultcount(xml) {
+    var xmlDoc = xml.responseXML;
+    x = xmlDoc.getElementsByTagName('title').length;
+    document.getElementById("results").innerHTML = "Results: " +
+    x;
+}
+
+
+
+
+
+
+
+//   var nodes = xmlDoc.getElementsByTagName('title'), //Get the var nodes <node> tags
+//     amountOfNodes = nodes.length
+//
+// for(var i = 0; i < amountOfNodes; i++) { //loop thru the nodes
+//
+//   console.log(nodes[i].getElementsByTagName('title').length); //get the amount of <alarm> tags
+//   document.getElementById("results").innerHTML = txt;
+// };
+// function my(xml) {
+//     var x, i, txt, xmlDoc;
+//     xmlDoc = xml.responseXML;
+//     txt = "";
+//     x = xmlDoc.getElementsByTagName("description");
+//     for (i = 0; i < x.length; i++) {
+//         txt += x[i].childNodes[0].nodeValue + "<br>";
+//     }
+//     document.getElementById("description").innerHTML = txt;
+// }
+
+
+    // x = xmlDoc.getElementsByTagName('title');
+    // xLen = x.length;
+    //
+    // for (i = 0; i <xLen; i++) {
+    //     txt += x[i].childNodes[0].nodeValue) + " ";
+    // }
+
+// function myFunction(xml) {
+    // var x, i, xmlDoc, txt;
+    // xmlDoc = xml.responseXML;
+    // txt = "";
+    // x = xmlDoc.getElementsByTagName('title');
+    // for (i = 0 ; i <x.length; i++) {
+    //     txt += x[i].childNodes[0].nodeValue + "<br>";
+    // }
+    // document.getElementById("demo").innerHTML = txt;
+
+</script>
+
+</body>
+</html>
