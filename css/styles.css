@@ -1,7 +1,9 @@
 body{
 
 }
+header{
 
+}
 .container select{
 display: inline-block;
 margin: 0 5px 10px 0;
@@ -11,6 +13,7 @@ padding: 6px 11px;
 background: #f2edea;
 border: 1px solid #f2edea;
 }
+
 .container__checkboxes{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -35,25 +38,55 @@ float: right;
   height: 175px;
   width: 175px;
 }
+table{
+  max-width: 950px;
+}
 article{
   display: inline-block;
   max-height: 305px;
   max-width: 175px;
-  padding-right: 15px;
-
+  padding: 0 15px 15px 0;
 }
+
 h5{
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  margin: 5px 0;
 }
 a{
   text-decoration: none;
   color: black;
 }
-p{
+p.price{
   text-align: center;
+  font-weight: bold;
+  margin: 10px 0;
 }
+#results{
+  text-align: left;
+  font-weight: bold;
+}
+button.readmore{
+  width: 97px;
+  margin-left: 5px;
+  height: 36px;
+  background: #369a35 no-repeat;
+  padding: 0 0 0 6px;
+  font: bold 12px/27px Arial,Helvetica,sans-serif;
+  text-align: center;
+  white-space: nowrap;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+button.readmore:hover{
+  background: #43ad42;
+}
+
 
 select{
   background: url('https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/icons2.png') no-repeat 87px -35px;
