@@ -34,20 +34,16 @@
 </div>
 <button type="button" id="search" class="container__checkboxes__submit">Søg</button>
 
-
+<p id=demo></p>
 <hr>
 <p id="results"></p>
 <table id="demo2"></table>
 
-<a href=""></a>
-<article>
-<p id="demo"></p>
-<img src="" alt="" class="image" >
-
-</article>
 </section>
 <script>
+
 document.getElementById("search").addEventListener("click", loadXMLDoc);
+
 function loadXMLDoc(){
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
@@ -59,45 +55,59 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "productFeedForNespresso.xml", true);
 xhttp.send();
 };
-//  function myFunction(xml) {
-//     var x, i, txt, xmlDoc, y, path;
-//     xmlDoc = xml.responseXML;
-//     txt = "";
-//     path = "";
-//     x = xmlDoc.getElementsByTagName("title");
-//     y = xmlDoc.getElementsByTagName("g:image_link");
-//     // z = xmlDoc.getElementsByTagName("g:price");
-//     for (i = 0; i < x.length; i++) {
-//       txt += x[i].childNodes[0].nodeValue + "<br>";
-//       path += y[i].childNodes[0].nodeValue;
-//     }
-// document.getElementById("demo").innerHTML = txt;
-// document.getElementById("image").src = path;
-// };
-//
+
+
+
+
+
 function myFunction(xml) {
   var i;
   var xmlDoc = xml.responseXML;
   var table="";
   var x = xmlDoc.getElementsByTagName("item");
-  for (i = 0; i <x.length; i++) {
-  var sprice = x[i].getElementsByTagName("specialPrice")[0].childNodes[0].nodeValue;
-  var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-  var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-    table += "<article>" + "<a href='"+a+"'>" +
-    "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
-     "<p class='price'>"; if(sprice.length == 0){
-       x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue;
-     }
-     else {
-      sprice;
-     }
-     + "</p>" + "<button class='readmore'>Læs mere</button>" + "</a></article>";
+    for (i = 0; i <x.length; i++) {
+       if(sprice == "undefined"){
+       var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+       var sprice = x[i].getElementsByTagName("specialPrice");
+       var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+       var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+       table += "<article>" + "<a href='"+a+"'>" +
+       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
+        "<p class='specialprice'>"+sprice+"</p></article>";
+  }   else {
+      var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+      var sprice = x[i].getElementsByTagName("specialPrice")[0];
+      var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+      var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+      table += "<article>" + "<a href='"+a+"'>" +
+      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
+       "<p class='price'>"+ price+"</></article>";
   }
 
+}
   document.getElementById("demo2").innerHTML = table;
 
+
 };
+
+  // document.getElementById("demo").innerHTML = sprice.getAttribute(0);
+// document.getElementsByClassName("price").innerHTML = price;
+// document.getElementsByClassName("sprice").innerHTML = sprice;
+
+
+
+
+function resultcount(xml) {
+    var xmlDoc = xml.responseXML;
+    x = xmlDoc.getElementsByTagName('title').length;
+    document.getElementById("results").innerHTML = "Results: " +
+    x;
+};
+
+
+
+
+
 
 // function getimage(xml) {
 //   var x, i, path, xmlDoc;
@@ -105,17 +115,56 @@ function myFunction(xml) {
 //   path = "";
 //
 //   for (i = 0; i < y.length; i++) {
+
+
+
+
+
+// var sprice = x[i].getElementsByTagName("specialPrice")[0];
+// var newprice = sprice.filter(function(specialPrice){
+// return sprice.nodeValue !== "undefined";
+//   });
+
+
+
+
+
+
 //
+//function myFunction(xml) {
+//   var i;
+//   var xmlDoc = xml.responseXML;
+//   var table="";
+//   var x = xmlDoc.getElementsByTagName("item");
+//   for (i = 0; i <x.length; i++) {
+//     if (sprice.every(function()) {
+//       var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+//       var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+//       var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+//         table += "<article>" + "<a href='"+a+"'>" +
+//         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
+//          "<p class='specialprice'>"+sprice.substringData(i, x.length)+"</p>"
+//     } else {
+//       var sprice = x[i].getElementsByTagName("specialPrice")[0];
+//       var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+//       var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+//       var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+//         table += "<article>" + "<a href='"+a+"'>" +
+//         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
+//          "<p class='price'>"+ price +"</p>"
+//     }
 //
+//        + "<button class='readmore'>Læs mere</button>" + "</a></article>";
+//   }
+//
+//   document.getElementById("demo2").innerHTML = table;
+//
+// // document.getElementsByClassName("price").innerHTML = price;
+// // document.getElementsByClassName("sprice").innerHTML = sprice;
+// };
+
 //   }
 //   };
-function resultcount(xml) {
-    var xmlDoc = xml.responseXML;
-    x = xmlDoc.getElementsByTagName('title').length;
-    document.getElementById("results").innerHTML = "Results: " +
-    x;
-}
-
 
 
 
