@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+<div id=demo></div>
+
+<script>
+let data = [
+{
+  country: 'China',
+  population: 1409517397,
+},
+{
+  country: 'India',
+  population: 1339180127,
+},
+{
+  country: 'USA',
+  population: 324459463,
+},
+{
+  country: 'Indonesia',
+  population: 263991379,
+}
+]
+
+let cities = data.filter(val => {
+  return val.population > 500000000;
+});
+console.log(cities);
+</script>
+
+  </body>
+</html>
