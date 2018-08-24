@@ -60,6 +60,7 @@ xhttp.send();
 //      ||
 
 
+
 function myFunction(xml) {
   let i;
   let xmlDoc = xml.responseXML;
@@ -69,40 +70,85 @@ function myFunction(xml) {
   // let cities = sprice.filter(val => {
   //   return val !== "undefined";
   // });
-  var filtered = sprice.filter(function (xml) {
-    sprice !=="undefined"
-});
+  // if (sprice.textContent !== "undefined"){
+  // // var nodeList = sprice.textContent;
+  // // var nodeArray = [];
+  // // for ( i = 0; i < nodeList.length; ++i) {
+  // //   nodeArray[i] = nodeList[i];
+  // //   console.log(nodeArray);
+//    var myNodeList = xmlDoc.getElementsByTagName("specialPrice");
+// var myArrayFromNodeList = []; // empty at first
+// for (i = 0; i < myNodeList.length; i++) {
+//   myArrayFromNodeList.push(myNodeList[i]); // ahhh, push it
+// }
+// console.log(myNodeList); // NodeList
+// console.log(myArrayFromNodeList); // Array of Nodes
+//   var filtered = sprice.filter(function (el) {
+//     sprice !=="undefined"
+// });
+// var data = [parseFloat(sprice[0].textContent).toFixed(2)];
+// data = data.filter(function(element) {
+//    return element !== undefined;
+// });
+// console.log(data);
+
     for (i = 0; i <x.length; i++) {
-       if( sprice.textContent !== "undefined"){
-       let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-      let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
-       let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-       let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-      let sprice = xmlDoc.getElementsByTagName("specialPrice");
-       table += "<article>" + "<a href='"+a+"'>" +
-       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-        "<p class='specialprice'>"+ sprice[0].textContent+"</p></article>";
-  }   else {
-      let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-      let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
-      let sprice = xmlDoc.getElementsByTagName("specialPrice");
-      let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-      let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-      table += "<article>" + "<a href='"+a+"'>" +
-      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-       "<p class='price'>"+ price +"</></article>";
+      // let sprice = x[i].getElementsByTagName("specialPrice");
+      // var data = [parseFloat(sprice[0].textContent).toFixed(2)];
+      // data = data.filter( Boolean );
+      // console.log(data);
+       if( sprice !== "undefined" ){
+            let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+            let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+            let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+            let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+            let sprice = x[i].getElementsByTagName("specialPrice");
+            table += "<article>" + "<a href='"+a+"'>" +
+            "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+             "<p class='specialprice'>"+parseFloat(sprice[0].textContent).toFixed(2)+"</p></article>"
+      }    else {
 
-  }
+            table += "<article>" + "<a href='"+a+"'>" +
+            "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+            "<p class='specialprice'>"+price+ "</p></article>";
+};
+      // let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+      // let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+      // let sprice = x[i].getElementsByTagName("specialPrice");
+      // let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+      // let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+      // table += "<article>" + "<a href='"+a+"'>" +
+      // "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+      //  "<p class='price'>"+ parseFloat(sprice[0].textContent).toFixed(2) +"</></article>";
 
-}
-  document.getElementById("demo2").innerHTML = table;
+// document.getElementsByClassName("specialprice").innerHTML = price;
+    document.getElementById("demo2").innerHTML = table;
+};
+// for(i=0;i <x.length; i++ ){
+// if(sprice.textContent !== "undefined"){
+// // document.getElementsByClassName("specialPrice").innerHTML = xmlDoc.getElementsByTagName("price")[0].childNodes[0].nodeValue;
+// document.getElementsByClassName("specialprice").innerHTML = xmlDoc.getElementsByTagName("specialPrice").textcontent;
+// } else{
+//
+//   // document.getElementsByClassName("specialprice").innerHTML = xmlDoc.getElementsByTagName("specialPrice").textcontent;
+//     document.getElementsByClassName("specialPrice").innerHTML = xmlDoc.getElementsByTagName("price")[0].childNodes[0].nodeValue;
+// }
+//
+//
+// };
+
 
 
 };
-
+// if(sprice !== undefined) {
+//   document.getElementsByClassName("specialprice").innerHTML = parseFloat(sprice[0].textContent).toFixed(2);
+// } else {
+//     document.getElementsByClassName("specialprice").innerHTML = price;
+// }
   // document.getElementById("demo").innerHTML = sprice.getAttribute(0);
 // document.getElementsByClassName("price").innerHTML = price;
 // document.getElementsByClassName("sprice").innerHTML = sprice;
+//  var arr = [].slice.call(xmlDoc.getElementsByTagName("specialPrice"));
 
 
 

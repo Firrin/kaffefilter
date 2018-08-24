@@ -55,6 +55,7 @@ article{
 }
 h5{
   overflow: hidden;
+  text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 5px 0;
