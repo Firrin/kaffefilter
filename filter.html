@@ -111,10 +111,6 @@ function myFunction(xml) {
     //
     // console.log(result);//show in console the result
 
-
-
-
-
     // console.log(texts);
        // writes the innerHTML of every p element.
      //   texts = Array.from(nodelist, node => node.textContent)
@@ -134,9 +130,16 @@ function myFunction(xml) {
       let sprice = x[i].getElementsByTagName("specialPrice");
       texts = Array.from(nodelist, node => node.textContent)
       newArray = Array.from(priselist, pris => pris.textContent)
+
+
+      if(texts[i] === "undefined") {
+          texts[i].fill(1)
+
+           console.log(texts)
+    }
             table += "<article>" + "<a href='"+a+"'>" +
             "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-             "<p class='specialprice'>"+texts +"</p></article>";
+             "<p class='specialprice'>"+parseFloat(texts).toFixed(2) +"</p></article>";
 
            // if(texts[i] == []){
            //   document.getElementsByClassName(specialprice).innerHTML = newArray[i]
@@ -145,14 +148,10 @@ function myFunction(xml) {
            //   //  "<p class='specialprice'>"+newArray+"</p></article>";
            // }
 
-           if(texts === "undefined"){
-         document.getElementsByClassName("specialprice")[i].innerHTML = parseFloat(xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue).toFixed(2);
-
-         }
 
 
 
-        console.log()
+
 // if(isNaN(texts)){
 //   table += "<article>" + "<a href='"+a+"'>" +
 //   "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
