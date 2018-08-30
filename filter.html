@@ -18,7 +18,7 @@
 <label for=""><select class="" name=""><option disabled selected>Type</option></select></label>
 <label for=""><select class="" name=""><option disabled selected>Sortering</option></select></label>
 <div class="container__checkboxes">
-<label><input type="checkbox"/> Økologisk</label>
+<label><input name="organic" type="checkbox"/> Økologisk</label>
 <label><input type="checkbox"/> Frugtig</label>
 <label><input type="checkbox"/> Mørkristet</label>
 
@@ -116,53 +116,28 @@ function myFunction(xml) {
       let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
       let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
       let sprice = x[i].getElementsByTagName("specialPrice");
-      texts = Array.from(nodelist, node => node.textContent)
-      newArray = Array.from(priselist, pris => pris.textContent)
-      styrke = Array.from(strengthlist, strength => strength.textContent)
-      egenskab = Array.from(egenskablist, egenskab => egenskab.textContent)
-      cupsize = Array.from(sizelist, size => size.textContent)
-      xlist = Array.from(x, items => x.textContent)
-
+      texts = Array.from(nodelist, node => node.textContent);
+      newArray = Array.from(priselist, pris => pris.textContent);
+      styrke = Array.from(strengthlist, strength => strength.textContent);
+      egenskab = Array.from(egenskablist, egenskab => egenskab.textContent);
+      cupsize = Array.from(sizelist, size => size.textContent);
+      xlist = Array.from(x, items => x.textContent);
+      espresso = cupsize.filter(cupsize => cupsize == "Espresso" || cupsize == "Ristretto,Espresso,Lungo" );
       if(typeof texts[i] === "undefined") {
           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
+
    }
 
-
-            table += "<article>" + "<a href='"+a+"'>" +
+            table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
             "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-             "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p></article>";
-
-console.log(table)
-
-
-
-// if(isNaN(texts)){
-//   table += "<article>" + "<a href='"+a+"'>" +
-//   "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-//    "<p class='specialprice'>"+price +"</p></article>"
-// }
-            // table += "<article>" + "<a href='"+a+"'>" +
-            // "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-            // "<p class='specialprice'>"+price+ "</p></article>";
+             "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
 
 
 
 
-  //           result = Array.from(texts, v => v.textContent === "" ? '-' : v);
-  //
-  // console.log(result);
 
-            // document.getElementsByClassName("specialprice")[3] = parseFloat(xmlDoc.getElementsByTagName("price")[3].childNodes[0].nodeValue).toFixed(2);
 
-// console.log(document.getElementsByClassName("specialprice")[3]);
-      // let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-      // let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
-      // let sprice = x[i].getElementsByTagName("specialPrice");
-      // let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-      // let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-      // table += "<article>" + "<a href='"+a+"'>" +
-      // "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-      //  "<p class='price'>"+ parseFloat(sprice[0].textContent).toFixed(2) +"</></article>";
+
 
 // document.getElementsByClassName("specialprice").innerHTML = price;
     document.getElementById("demo2").innerHTML = table;
@@ -177,36 +152,7 @@ console.log(table)
 
 
 
-        // do{
-//   document.getElementsByClassName("specialprice").innerHTML = sprice;
-// }
-// while(!sprice)
-// for(i=0;i <x.length; i++ ){
-// if(sprice.textContent !== "undefined"){
-// // document.getElementsByClassName("specialPrice").innerHTML = xmlDoc.getElementsByTagName("price")[0].childNodes[0].nodeValue;
-// document.getElementsByClassName("specialprice").innerHTML = xmlDoc.getElementsByTagName("specialPrice").textcontent;
-// } else{
-//
-//   // document.getElementsByClassName("specialprice").innerHTML = xmlDoc.getElementsByTagName("specialPrice").textcontent;
-//     document.getElementsByClassName("specialPrice").innerHTML = xmlDoc.getElementsByTagName("price")[0].childNodes[0].nodeValue;
-// }
-//
-//
-// };
-
-
-
 };
-// if(sprice !== undefined) {
-//   document.getElementsByClassName("specialprice").innerHTML = parseFloat(sprice[0].textContent).toFixed(2);
-// } else {
-//     document.getElementsByClassName("specialprice").innerHTML = price;
-// }
-  // document.getElementById("demo").innerHTML = sprice.getAttribute(0);
-// document.getElementsByClassName("price").innerHTML = price;
-// document.getElementsByClassName("sprice").innerHTML = sprice;
-//  var arr = [].slice.call(xmlDoc.getElementsByTagName("specialPrice"));
-
 
 
 
@@ -222,50 +168,11 @@ function resultcount(xml) {
 
 
 
-// function getimage(xml) {
-//   var x, i, path, xmlDoc;
-//   xmlDoc = xml.responseXML;
-//   path = "";
-//
-//   for (i = 0; i < y.length; i++) {
 
 
 
 
 
-// var sprice = x[i].getElementsByTagName("specialPrice")[0];
-// var newprice = sprice.filter(function(specialPrice){
-// return sprice.nodeValue !== "undefined";
-//   });
-
-
-
-
-
-
-//
-//function myFunction(xml) {
-//   var i;
-//   var xmlDoc = xml.responseXML;
-//   var table="";
-//   var x = xmlDoc.getElementsByTagName("item");
-//   for (i = 0; i <x.length; i++) {
-//     if (sprice.every(function()) {
-//       var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-//       var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-//       var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-//         table += "<article>" + "<a href='"+a+"'>" +
-//         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
-//          "<p class='specialprice'>"+sprice.substringData(i, x.length)+"</p>"
-//     } else {
-//       var sprice = x[i].getElementsByTagName("specialPrice")[0];
-//       var price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-//       var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-//       var img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-//         table += "<article>" + "<a href='"+a+"'>" +
-//         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
-//          "<p class='price'>"+ price +"</p>"
-//     }
 //
 //        + "<button class='readmore'>Læs mere</button>" + "</a></article>";
 //   }

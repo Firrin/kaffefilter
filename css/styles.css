@@ -73,6 +73,11 @@ p.price{
   text-align: left;
   font-weight: bold;
 }
+#1{
+  display: none;
+  }
+
+
 button.readmore{
   width: 97px;
   margin-left: 5px;
