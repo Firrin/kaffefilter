@@ -70,6 +70,7 @@ function myFunction(xml) {
   // let cities = sprice.filter(val => {
   //   return val !== "undefined";
   // });
+
   // if (sprice.textContent !== "undefined"){
   // // var nodeList = sprice.textContent;
   // // var nodeArray = [];
@@ -95,34 +96,21 @@ function myFunction(xml) {
 // var newArray = x[i].getElementsByTagName('specialPrice').filter(function(item) {
 //   return x[i].getElementsByTagName('specialPrice') !== "";
 // });
+
 // console.log(x[i].getElementsByTagName('specialPrice'));
     for (i = 0; i <x.length; i++) {
       let nodelist = x[i].getElementsByTagName('specialPrice');
       let priselist = x[i].getElementsByTagName("price");
+      let strengthlist = x[i].getElementsByTagName("styrke");
+      let egenskablist = x[i].getElementsByTagName("egenskab");
+      let sizelist = x[i].getElementsByTagName("cupsize");
     // let newArray =  Array.prototype.map.call( nodelist, function(n){
     // console.log(n.innerHTML);
     // });
     //
 
-    // var result = texts.map(function(e, i) {
-    //   return texts[i] == newArray[i] ? newArray[i] : texts[i];
-    // })
-    //
-    //
-    // console.log(result);//show in console the result
 
-    // console.log(texts);
-       // writes the innerHTML of every p element.
-     //   texts = Array.from(nodelist, node => node.textContent)
-     //   newArray = Array.from(priselist, pris => pris.textContent)
-     //       finalarray = [];
-     //       newArray.map((v, i) => v === texts[i] ? finalarray[i] : v);
-     // console.log(priselist);
 
-      // let sprice = x[i].getElementsByTagName("specialPrice");
-      // var data = [parseFloat(sprice[0].textContent).toFixed(2)];
-      // data = data.filter( Boolean );
-      // console.log(data);
       let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
       let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
       let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
@@ -130,25 +118,21 @@ function myFunction(xml) {
       let sprice = x[i].getElementsByTagName("specialPrice");
       texts = Array.from(nodelist, node => node.textContent)
       newArray = Array.from(priselist, pris => pris.textContent)
+      styrke = Array.from(strengthlist, strength => strength.textContent)
+      egenskab = Array.from(egenskablist, egenskab => egenskab.textContent)
+      cupsize = Array.from(sizelist, size => size.textContent)
+      xlist = Array.from(x, items => x.textContent)
+
+      if(typeof texts[i] === "undefined") {
+          texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
+   }
 
 
-      if(texts[i] === "undefined") {
-          texts[i].fill(1)
-
-           console.log(texts)
-    }
             table += "<article>" + "<a href='"+a+"'>" +
             "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-             "<p class='specialprice'>"+parseFloat(texts).toFixed(2) +"</p></article>";
+             "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p></article>";
 
-           // if(texts[i] == []){
-           //   document.getElementsByClassName(specialprice).innerHTML = newArray[i]
-           //   // table += "<article>" + "<a href='"+a+"'>" +
-           //   // "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-           //   //  "<p class='specialprice'>"+newArray+"</p></article>";
-           // }
-
-
+console.log(table)
 
 
 
@@ -183,7 +167,6 @@ function myFunction(xml) {
 // document.getElementsByClassName("specialprice").innerHTML = price;
     document.getElementById("demo2").innerHTML = table;
 };
-
 
 
 
