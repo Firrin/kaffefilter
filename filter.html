@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,12 +18,12 @@
 <label for=""><select class="" name=""><option disabled selected>Type</option></select></label>
 <label for=""><select class="" name=""><option disabled selected>Sortering</option></select></label>
 <div class="container__checkboxes">
-<label><input name="organic" type="checkbox"/> Økologisk</label>
+<label><input name="organic" id="Organic" type="checkbox"/> Økologisk</label>
 <label><input type="checkbox"/> Frugtig</label>
 <label><input type="checkbox"/> Mørkristet</label>
 
 <label><input type="checkbox"/> Aromatisk Arabica</label>
-<label><input type="checkbox"/> Chokolade</label>
+<label><input type="checkbox"/> Tilbehør</label>
 <label><input type="checkbox"/> Lakrids</label>
 
 <label><input type="checkbox"/> Koffeinfri</label>
@@ -64,7 +64,7 @@ xhttp.send();
 function myFunction(xml) {
   let i;
   let xmlDoc = xml.responseXML;
-  let table="";
+  let table = "";
   let x = xmlDoc.getElementsByTagName("item");
   let sprice = xmlDoc.getElementsByTagName("specialPrice");
   // let cities = sprice.filter(val => {
@@ -97,13 +97,21 @@ function myFunction(xml) {
 //   return x[i].getElementsByTagName('specialPrice') !== "";
 // });
 
+var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked').length;
+
+
+
+
+
+
 // console.log(x[i].getElementsByTagName('specialPrice'));
     for (i = 0; i <x.length; i++) {
       let nodelist = x[i].getElementsByTagName('specialPrice');
       let priselist = x[i].getElementsByTagName("price");
       let strengthlist = x[i].getElementsByTagName("styrke");
-      let egenskablist = x[i].getElementsByTagName("egenskab");
+      let egenskablist = x[i].getElementsByTagName("egenskaber");
       let sizelist = x[i].getElementsByTagName("cupsize");
+
     // let newArray =  Array.prototype.map.call( nodelist, function(n){
     // console.log(n.innerHTML);
     // });
@@ -121,30 +129,42 @@ function myFunction(xml) {
       styrke = Array.from(strengthlist, strength => strength.textContent);
       egenskab = Array.from(egenskablist, egenskab => egenskab.textContent);
       cupsize = Array.from(sizelist, size => size.textContent);
-      xlist = Array.from(x, items => x.textContent);
-      espresso = cupsize.filter(cupsize => cupsize == "Espresso" || cupsize == "Ristretto,Espresso,Lungo" );
+      items = Array.from(x, item => item.childNodes);   //
+      xlist = Array.from(x, items => x);
+      espresso = cupsize.filter(cupsize => xlist == "Espresso" || xlist == "Ristretto,Espresso,Lungo" );
+      organicFilter = xlist.filter(xlist => xlist == "Komposterbar,Økologisk");
+      organiclist = x[i].innerHTML.includes("Komposterbar,Økologisk");
+
+      console.log(items)
+      // if(items[5].nodeList.textContent.includes("Komposterbar,Økologisk")){
+      //   console.log(hej)
+      // }
+    // console.log(organicFilter[i].getElementsByTagName("title").textContent);
+
       if(typeof texts[i] === "undefined") {
           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
 
    }
+if(checkboxcounter == 9){
+  table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
+    "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+     "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+}
 
-            table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
-            "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-             "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+var organic = document.getElementById("Organic")
+if(organic.checked){
+  if(x[i].innerHTML.includes("Komposterbar,Økologisk")){
 
-
-
-
-
+}
+}
 
 
 
 // document.getElementsByClassName("specialprice").innerHTML = price;
-    document.getElementById("demo2").innerHTML = table;
+
 };
 
-
-
+document.getElementById("demo2").innerHTML = table;
 
 
 
