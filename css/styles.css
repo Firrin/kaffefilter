@@ -41,6 +41,9 @@ float: right;
 }
 table{
   max-width: 950px;
+    break-after: avoid;
+    display: inline;
+
 }
 
 .specialprice{
@@ -52,6 +55,7 @@ article{
   max-height: 305px;
   max-width: 175px;
   padding: 0 15px 15px 0;
+  break-after: avoid;
 }
 h5{
   overflow: hidden;
@@ -64,6 +68,7 @@ a{
   text-decoration: none;
   color: black;
 }
+
 p.price{
   text-align: center;
   font-weight: bold;

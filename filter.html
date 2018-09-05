@@ -12,32 +12,77 @@
 <section class="container">
 
 
-<label for=""><select class="" name=""><option disabled selected>Styrke</option></select></label>
-<label for=""><select class="" name=""><option disabled selected>Størrelse</option></select></label>
-<label for=""><select class="" name=""><option disabled selected>Kvalitet</option></select></label>
-<label for=""><select class="" name=""><option disabled selected>Type</option></select></label>
-<label for=""><select class="" name=""><option disabled selected>Sortering</option></select></label>
+<label for="">
+  <select class="" name="">
+  <option disabled selected>Styrke</option>
+    <option id="Mild">Mild</option>
+      <option id="Medium">Medium</option>
+        <option id="Stærk">Stærk</option>
+  </select>
+</label>
+<label for="">
+  <select class="" name="">
+    <option disabled selected>Størrelse</option>
+    <option id="Ristretto">Ristretto</option>
+    <option id="Espresso">Espresso</option>
+    <option id="Lungo">Lungo</option>
+    <option id="Almindelig">Almidelig kop</option>
+  </select>
+</label>
+<label for="">
+  <select class="" name="">
+    <option disabled selected>Kvalitet</option>
+    <option>Kvalitet</option>
+    <option>Kvalitet</option>
+  </select>
+</label>
+<label for="">
+  <select class="" name="">
+    <option disabled selected>Brand</option>
+    <option id="Bosch">Bosch</option>
+    <option id="Kaffekapslen">Kaffekapslen</option>
+    <option id="LOr">LOr</option>
+    <option id="PeterLarsen">Peter Larsen</option>
+    <option id="BKI">BKI</option>
+    <option id="Lofbergs">Löfbergs</option>
+    <option id="Gimoka">Gimoka</option>
+    <option id="Segafredo">Segafredo</option>
+    <option id="Caferene">Café René</option>
+    <option id="Lavazza">Lavazza</option>
+    <option id="GranCaffe">Gran Caffé Garibaldi</option>
+    <option id="Gevalia">Gevalia</option>
+    <option id="CarteNoire">Carte Noire</option>
+  </select>
+</label>
+<label for="">
+  <select class="" name="">
+    <option disabled selected>Sortering</option>
+    <option>Sortering</option>
+    <option>Sortering</option>
+  </select>
+</label>
 <div class="container__checkboxes">
 <label><input name="organic" id="Organic" type="checkbox"/> Økologisk</label>
-<label><input type="checkbox"/> Frugtig</label>
-<label><input type="checkbox"/> Mørkristet</label>
+<label><input id="Frugtig" type="checkbox"/> Frugtig</label>
+<label><input id="Dark" type="checkbox"/> Mørkristet</label>
 
-<label><input type="checkbox"/> Aromatisk Arabica</label>
-<label><input type="checkbox"/> Tilbehør</label>
-<label><input type="checkbox"/> Lakrids</label>
+<label><input id="Aromatisk" type="checkbox"/> Aromatisk Arabica</label>
+<label><input id="Tilbehør" type="checkbox"/> Tilbehør</label>
+<label><input id="Bigpack" type="checkbox"/> Big pack</label>
 
-<label><input type="checkbox"/> Koffeinfri</label>
-<label><input type="checkbox"/> Karamel</label>
-<label><input type="checkbox"/> The</label>
+<label><input id="Koffeinfri" type="checkbox"/> Koffeinfri</label>
+<label><input id="Karamel" type="checkbox"/> Karamel</label>
+<label><input id="Te" type="checkbox"/> Te</label>
 
 <!-- <input type="checkbox"> <label for="">Syrlighed</label> -->
 </div>
 <button type="button" id="search" class="container__checkboxes__submit">Søg</button>
 
-<p id=demo></p>
+
 <hr>
 <p id="results"></p>
 <table id="demo2"></table>
+<table id=demo></table>
 
 </section>
 <script>
@@ -65,6 +110,23 @@ function myFunction(xml) {
   let i;
   let xmlDoc = xml.responseXML;
   let table = "";
+  let organictable ="";
+  let tilbehørtable ="";
+  let Koffeinfritable ="";
+  let bigpacktable ="";
+  let aromatisktable ="";
+  let tetable ="";
+  let darktable ="";
+  let karameltable="";
+  let frugtigtable ="";
+  let ristrettotable="";
+  let espressotable ="";
+  let lungotable ="";
+  let almindeligtable ="";
+  let mildtable ="";
+  let mediumtable ="";
+  let strongtable ="";
+  let testtable="";
   let x = xmlDoc.getElementsByTagName("item");
   let sprice = xmlDoc.getElementsByTagName("specialPrice");
   // let cities = sprice.filter(val => {
@@ -129,50 +191,221 @@ var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked'
       styrke = Array.from(strengthlist, strength => strength.textContent);
       egenskab = Array.from(egenskablist, egenskab => egenskab.textContent);
       cupsize = Array.from(sizelist, size => size.textContent);
-      items = Array.from(x, item => item.childNodes);   //
+    let items = Array.from(x, item => item.childNodes);   //
       xlist = Array.from(x, items => x);
-      espresso = cupsize.filter(cupsize => xlist == "Espresso" || xlist == "Ristretto,Espresso,Lungo" );
-      organicFilter = xlist.filter(xlist => xlist == "Komposterbar,Økologisk");
-      organiclist = x[i].innerHTML.includes("Komposterbar,Økologisk");
+      espresso = cupsize.filter(cupsize => x == "Espresso" || xlist == "Ristretto,Espresso,Lungo" );
+      organicFilter = items.filter(items => items == "Komposterbar,Økologisk");
+      organiclist = x[i].innerHTML.includes("Økologisk");
+      // organicfilterX = x.filter(x => x == "Komposterbar,Økologisk");
 
-      console.log(items)
-      // if(items[5].nodeList.textContent.includes("Komposterbar,Økologisk")){
-      //   console.log(hej)
-      // }
-    // console.log(organicFilter[i].getElementsByTagName("title").textContent);
+tilbehørlist = x[i].innerHTML.includes("Tilbehør");
+koffeinfrilist = x[i].innerHTML.includes("Koffeinfri");
+bigpacklist = x[i].innerHTML.includes("Big pack");
+aromatisklist = x[i].innerHTML.includes("Aromatisk");
+telist = x[i].innerHTML.includes(" te");
+darklist = x[i].innerHTML.includes("Mørkristede");
+karamelliste = x[i].innerHTML.includes("Karamel");
+frugtigliste = x[i].innerHTML.includes("Frugt");
+ristrettoliste = x[i].innerHTML.includes("Ristretto");
+espressoliste = x[i].innerHTML.includes("Espresso");
+lungoliste = x[i].innerHTML.includes("Lungo");
+almindeligliste = x[i].innerHTML.includes("Almindelig");
 
+testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
+
+    //special price to price when specialprice is undefined
       if(typeof texts[i] === "undefined") {
           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
 
    }
-if(checkboxcounter == 9){
-  table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
-    "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-     "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+
+   var ristretto = document.getElementById("Ristretto")
+   if(Ristretto.selected){
+     if(ristrettoliste === true){
+       ristrettotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+
+     }
+
+   }
+   var espresso = document.getElementById("Espresso")
+   if(Espresso.selected){
+     if(espressoliste === true){
+       espressotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+          if(Te.checked){
+            if(telist === true){
+              tetable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+                "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+                 "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+            }
+
+
+    }
+    if(Aromatisk.checked){
+      if(aromatisklist === true){
+        aromatisktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+      }
+
+    }
+
+
+     }
+
+   }
+   var lungo = document.getElementById("lungo")
+   if(Lungo.selected){
+     if(lungoliste === true){
+       lungotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+   var almindelig = document.getElementById("Almindelig")
+   if(Almindelig.selected){
+     if(almindeligliste === true){
+      almindeligtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+
+   var mild = document.getElementById("Mild")
+   if(Mild.selected){
+     if(styrke[0] <5){
+       if(typeof styrke !== "undefined"){
+      mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }}
+   var Medium = document.getElementById("Medium")
+   if(Medium.selected){
+     if(styrke[0] >=5 && styrke[0] <=7 ){
+       if(typeof styrke !== "undefined"){
+      mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }}
+   var stærk = document.getElementById("stærk")
+   if(Stærk.selected){
+     if(styrke[0] >=8 ){
+       if(typeof styrke !== "undefined"){
+      strongtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }}
+
+var frugtig = document.getElementById("Frugtig")
+if(Frugtig.checked){
+  if(frugtigliste === true){
+    frugtigtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+  }
+
 }
+
+
+
+
+var aromatisk = document.getElementById("Aromatisk")
+
+var karamel = document.getElementById("Karamel")
+if(Karamel.checked){
+  if(karamelliste === true){
+    karameltable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+  }
+
+}
+
+
+
+
+
+
+   var bigpack = document.getElementById("Bigpack")
+   if(Bigpack.checked){
+     if(bigpacklist === true){
+       bigpacktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+
+   var dark = document.getElementById("Dark")
+   if(Dark.checked){
+     if(darklist === true){
+       darktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+   var koffeinfri = document.getElementById("Koffeinfri")
+   if(Koffeinfri.checked){
+     if(koffeinfrilist === true){
+       Koffeinfritable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+
+   var tilbehør = document.getElementById("Tilbehør")
+   if(Tilbehør.checked){
+     if(tilbehørlist === true){
+       tilbehørtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+     }
+
+   }
+
+
+//
+// if(checkboxcounter == 9){
+//   table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
+//     "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//      "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+// }
 
 var organic = document.getElementById("Organic")
 if(organic.checked){
-  if(x[i].innerHTML.includes("Komposterbar,Økologisk")){
+  if(organiclist === true){
+    organictable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+  }
 
 }
-}
-
-
 
 // document.getElementsByClassName("specialprice").innerHTML = price;
 
 };
 
 document.getElementById("demo2").innerHTML = table;
-
-
-
+document.getElementById("demo").innerHTML = organictable + tilbehørtable + Koffeinfritable+bigpacktable+aromatisktable+tetable+darktable+karameltable+frugtigtable+ristrettotable+espressotable+lungotable+almindeligtable+mildtable+mediumtable+strongtable+testtable;
 
 
 
 
 };
+
 
 
 
