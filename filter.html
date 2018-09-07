@@ -22,9 +22,9 @@
 </label>
 <label for="">
   <select class="" name="">
-    <option disabled selected>Størrelse</option>
+    <option disabled >Størrelse</option>
     <option id="Ristretto">Ristretto</option>
-    <option id="Espresso">Espresso</option>
+    <option id="Espresso" selected>Espresso</option>
     <option id="Lungo">Lungo</option>
     <option id="Almindelig">Almidelig kop</option>
   </select>
@@ -68,9 +68,9 @@
 
 <label><input id="Aromatisk" type="checkbox"/> Aromatisk Arabica</label>
 <label><input id="Tilbehør" type="checkbox"/> Tilbehør</label>
-<label><input id="Bigpack" type="checkbox"/> Big pack</label>
+<label><input id="Bigpack" type="checkbox"checked /> Big pack</label>
 
-<label><input id="Koffeinfri" type="checkbox"/> Koffeinfri</label>
+<label><input id="Koffeinfri" type="checkbox" checked/> Koffeinfri</label>
 <label><input id="Karamel" type="checkbox"/> Karamel</label>
 <label><input id="Te" type="checkbox"/> Te</label>
 
@@ -213,6 +213,9 @@ almindeligliste = x[i].innerHTML.includes("Almindelig");
 
 testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
 
+arrayoflist = ["organiclist","frugtigliste", "darklist", "aromatisklist", "tilbehørlist","bigpacklist", "koffeinfrilist","karamelliste", "telist", "ristrettoliste", "espressoliste", "almindeligliste"];
+console.log(document.getElementsByTagName("option"))
+console.log(arrayoflist)
     //special price to price when specialprice is undefined
       if(typeof texts[i] === "undefined") {
           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
@@ -300,10 +303,6 @@ testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
 
                          }
 
-
-
-
-
 var frugtig = document.getElementById("Frugtig")
 if(Frugtig.checked){
   if(frugtigliste === true){
@@ -313,9 +312,6 @@ if(Frugtig.checked){
   }
 
 }
-
-
-
 
 var aromatisk = document.getElementById("Aromatisk")
 
@@ -328,11 +324,6 @@ if(Karamel.checked){
   }
 
 }
-
-
-
-
-
 
    var bigpack = document.getElementById("Bigpack")
    if(Bigpack.checked){
@@ -394,14 +385,33 @@ if(organic.checked){
 }
 // document.getElementsByClassName("specialprice").innerHTML = price;
 
-window.onload =  console.log(document.querySelectorAll(".article"+"i").length)
-
+//splice til at fjerne alle undtagen 1 fra array
 };
 document.getElementById("demo2").innerHTML = table;
 finaltable = document.getElementById("demo").innerHTML = organictable + tilbehørtable + Koffeinfritable+bigpacktable+aromatisktable+tetable+darktable+karameltable+frugtigtable+ristrettotable+espressotable+lungotable+almindeligtable+mildtable+mediumtable+strongtable+testtable;
+//console.log(document.querySelectorAll("article")[83].classList.value)
+
+// if(document.querySelectorAll("article"))
+
+
+for(i=0; i<x.length; i++){
+if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
+
+dublicatearray = Array.prototype.slice.call(document.getElementsByClassName("article"+i+""));
+dublicatearray.splice(1)
 
 
 
+// dublicatearray.toString().innerHTML = document.getElementsByClassName("article"+i+"")
+// console.log(dublicatearray.toString());
+// document.getElementsByClassName("article"+i+"") = dublicatearray;
+}
+//console.log(document.querySelectorAll("article")[i].classList[0])
+// console.log(document.getElementsByClassName("article"+i+""))
+
+
+   //  console.log(document.getElementsByClassName("article101"))
+}
 
 };
 
