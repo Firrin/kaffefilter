@@ -13,19 +13,19 @@
 
 
 <label for="">
-  <select class="" name="">
-  <option disabled selected>Styrke</option>
-    <option id="Mild">Mild</option>
-      <option id="Medium">Medium</option>
-        <option id="Stærk">Stærk</option>
+  <select id="styrke" class="" name="">
+  <option  >Styrke</option>
+    <option value="1" selected id="Mild">Mild</option>
+      <option value="4" id="Medium">Medium</option>
+        <option value=9 id="Stærk">Stærk</option>
   </select>
 </label>
 <label for="">
-  <select class="" name="">
-    <option disabled >Størrelse</option>
+  <select id="størrelse" class="" name="">
+    <option  >Størrelse</option>
     <option id="Ristretto">Ristretto</option>
-    <option id="Espresso" selected>Espresso</option>
-    <option id="Lungo">Lungo</option>
+    <option id="Espresso" >Espresso</option>
+    <option id="Lungo" selected>Lungo</option>
     <option id="Almindelig">Almidelig kop</option>
   </select>
 </label>
@@ -78,7 +78,6 @@
 </div>
 <button type="button" id="search" class="container__checkboxes__submit">Søg</button>
 
-
 <hr>
 <p id="results"></p>
 <table id="demo2"></table>
@@ -87,7 +86,11 @@
 </section>
 <script>
 
-document.getElementById("search").addEventListener("click", loadXMLDoc);
+document.getElementById("search").addEventListener("click", function(){
+
+loadXMLDoc();
+
+});
 
 function loadXMLDoc(){
 var xhttp = new XMLHttpRequest();
@@ -165,7 +168,6 @@ var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked'
 
 
 
-
 // console.log(x[i].getElementsByTagName('specialPrice'));
     for (i = 0; i <x.length; i++) {
       let nodelist = x[i].getElementsByTagName('specialPrice');
@@ -214,13 +216,63 @@ almindeligliste = x[i].innerHTML.includes("Almindelig");
 testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
 
 arrayoflist = ["organiclist","frugtigliste", "darklist", "aromatisklist", "tilbehørlist","bigpacklist", "koffeinfrilist","karamelliste", "telist", "ristrettoliste", "espressoliste", "almindeligliste"];
-console.log(document.getElementsByTagName("option"))
-console.log(arrayoflist)
+inputarray = ["Organic", "Frugtig", "Dark", "Aromatisk", "Tilbehør", "Bigpack", "Koffeinfri", "Karamel", "Te"]
     //special price to price when specialprice is undefined
       if(typeof texts[i] === "undefined") {
           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
 
    }
+// if(typeof xmlDoc.getElementsByTagName("styrke")[i].innerHTML!== "undefined" && typeof xmlDoc.getElementsByTagName("cupsize")[i].innerHTML !== "undefined"){
+//     styrke4 = xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4");
+// if(Lungo.selected){
+//      if(xmlDoc.getElementsByTagName("cupsize")[i].innerHTML.includes("Lungo") === true){
+//   if(Mild.selected){
+//     if(styrke == 4){
+//         console.log(x[i])
+//     }
+// }
+//
+// }}
+//}
+størrelser = ["Ristretto", "Espresso", "Lungo", "Almindelig"];
+styrker = ["Mild", "Normal", "stærk"]
+listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
+var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].value;
+var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+// if(valgtstørrelse === størrelser[0]){
+//     if(valgtstyrke === styrker[0]){
+// if(listoflists[0] === true && styrke[0]==4){
+//
+// console.log(x[i])
+//
+//     }
+//   }
+// }
+//
+
+test1 = x[i].innerHTML.includes(valgtstørrelse);
+test2 = x[i].innerHTML.includes(valgtstyrke);
+
+if(test1 === true){
+if(test2 === true){
+console.log(x[i])
+}
+}
+
+
+
+//
+// if(lungoliste === true){
+// if(styrke[0] == 4){
+// console.log(x[i])
+// }}
+
+ // console.log(xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4"))
+
+    // console.log(xmlDoc.getElementsByTagName("cupsize"))
+
+
+
 
    var ristretto = document.getElementById("Ristretto")
    if(Ristretto.selected){
@@ -232,15 +284,15 @@ console.log(arrayoflist)
      }
 
    }
-   var lungo = document.getElementById("lungo")
-   if(Lungo.selected){
-     if(lungoliste === true){
-       lungotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
+   // var lungo = document.getElementById("lungo")
+   // if(Lungo.selected){
+   //   if(lungoliste === true){
+   //     lungotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+   //       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+   //        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+   //   }
+   //
+   // }
    var almindelig = document.getElementById("Almindelig")
    if(Almindelig.selected){
      if(almindeligliste === true){
@@ -347,7 +399,7 @@ if(Karamel.checked){
    var koffeinfri = document.getElementById("Koffeinfri")
    if(Koffeinfri.checked){
      if(koffeinfrilist === true){
-       Koffeinfritable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+       Koffeinfritable +="<article class='article"+i+" test'>" + "<a href='"+a+"'>" +
          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
      }
@@ -385,36 +437,53 @@ if(organic.checked){
 }
 // document.getElementsByClassName("specialprice").innerHTML = price;
 
+
+
+
+
+
+
 //splice til at fjerne alle undtagen 1 fra array
 };
 document.getElementById("demo2").innerHTML = table;
 finaltable = document.getElementById("demo").innerHTML = organictable + tilbehørtable + Koffeinfritable+bigpacktable+aromatisktable+tetable+darktable+karameltable+frugtigtable+ristrettotable+espressotable+lungotable+almindeligtable+mildtable+mediumtable+strongtable+testtable;
 //console.log(document.querySelectorAll("article")[83].classList.value)
-
+//
+// if(Koffeinfritable = bigpacktable ){
+//   console.log("hej")
+// }
 // if(document.querySelectorAll("article"))
-
 
 for(i=0; i<x.length; i++){
 if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
 
-dublicatearray = Array.prototype.slice.call(document.getElementsByClassName("article"+i+""));
-dublicatearray.splice(1)
 
 
+  dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
+  dublicatearray.splice(1)
 
-// dublicatearray.toString().innerHTML = document.getElementsByClassName("article"+i+"")
-// console.log(dublicatearray.toString());
-// document.getElementsByClassName("article"+i+"") = dublicatearray;
-}
-//console.log(document.querySelectorAll("article")[i].classList[0])
-// console.log(document.getElementsByClassName("article"+i+""))
+}}
 
+// for(i=0; i<x.length; i++){
+// if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
+//
+// dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
+// dublicatearray.splice(1)
+// console.log(dublicatearray)
 
-   //  console.log(document.getElementsByClassName("article101"))
-}
+//
+// // dublicatearray.toString().innerHTML = document.getElementsByClassName("article"+i+"")
+// // console.log(dublicatearray.toString());
+// // document.getElementsByClassName("article"+i+"") = dublicatearray;
+// }
+// //console.log(document.querySelectorAll("article")[i].classList[0])
+// // console.log(document.getElementsByClassName("article"+i+""))
+//
+//
+//    //  console.log(document.getElementsByClassName("article101"))
+// }
 
 };
-
 
 
 
@@ -424,9 +493,6 @@ function resultcount(xml) {
     document.getElementById("results").innerHTML = "Results: " +
     x;
 };
-
-
-
 
 
 
