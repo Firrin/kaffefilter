@@ -14,10 +14,10 @@
 
 <label for="">
   <select id="styrke" class="" name="">
-  <option  >Styrke</option>
+  <option >Styrke</option>
     <option value="1" selected id="Mild">Mild</option>
       <option value="4" id="Medium">Medium</option>
-        <option value=9 id="Stærk">Stærk</option>
+        <option value="9" id="Stærk">Stærk</option>
   </select>
 </label>
 <label for="">
@@ -237,8 +237,7 @@ inputarray = ["Organic", "Frugtig", "Dark", "Aromatisk", "Tilbehør", "Bigpack",
 størrelser = ["Ristretto", "Espresso", "Lungo", "Almindelig"];
 styrker = ["Mild", "Normal", "stærk"]
 listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
-var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].value;
-var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+
 // if(valgtstørrelse === størrelser[0]){
 //     if(valgtstyrke === styrker[0]){
 // if(listoflists[0] === true && styrke[0]==4){
@@ -248,19 +247,56 @@ var valgtstørrelse = document.getElementById("størrelse").options[document.get
 //     }
 //   }
 // }
-//
+if(Mild.selected){
+  styrke[0] === 1 && styrke[0] === 2 && styrke[0]=== 3
+  console.log(x[i])
+}
 
 test1 = x[i].innerHTML.includes(valgtstørrelse);
-test2 = x[i].innerHTML.includes(valgtstyrke);
 
-if(test1 === true){
-if(test2 === true){
-console.log(x[i])
+// console.log()
+// if(test1 === true){
+// // if(test2 == "1"){
+// //
+// // }
+//
+// if(styrke[0] == "4"){
+//   console.log(styrke[0])
+// }
+// }
+// if(x[i].childNodes[10].innerHTML === "4"){
+//   if(x[i].childNodes[10].nextSibling.nextSibling.innerHTML == "lungo"){
+//
+// }
+
+mild = ["1", "2", "3"];
+medium = ["4", "5", "6"];
+stærk = ["7", "8", "9", "10"];
+var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].value;
+var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+
+//    Filter størrelse og styrke
+if(typeof x[i].childNodes[12] !== "undefined"){
+lungostørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
+if(lungostørrelse === true){
+// if(styrke[0] === valgtstyrke){
+  // if(valgtstørrelse === "1"){
+ if(styrke[0]<5 ){
+console.log(xmlDoc.getElementsByTagName("item")[i])
 }
 }
+else if(valgtstørrelse === 2){
+if(styrke[0] >5 && styrke[0] <7 ){
+  console.log(xmlDoc.getElementsByTagName("item")[i])
+}}
 
 
+}
+//}
 
+
+//childnodes [10] = cupsize
+//childnodes[12] = størrelse
 //
 // if(lungoliste === true){
 // if(styrke[0] == 4){
