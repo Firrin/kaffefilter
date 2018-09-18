@@ -8,6 +8,14 @@ header,img{
 .container{
   max-width: 800px;
 }
+ul{
+  list-style-type: none;
+  display: inline;
+}
+li{
+  display: inline-block;
+
+}
 .container select{
 display: inline-block;
 margin: 0 5px 10px 0;

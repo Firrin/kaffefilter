@@ -8,8 +8,36 @@
   <title>Kaffekapslen</title>
 </head>
 <body>
-<header><img src="images/header.jpg" alt=""></header>
+<!-- <header><img src="images/header.jpg" alt=""></header> -->
 <section class="container">
+
+ <ul>
+<li><label for=""><span><a id="Cosi" href="https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166">
+<img src="" alt="">
+    <h1>Nespresso Cosi</h1>
+    <h3>Intensitet: 4</h3>
+    <h3>Kopstørrelse: Espresso</h3>
+  </a>
+
+  </span></label></li>
+  <li><label for=""><span><a id="livanto" href="https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166">
+    <img src="" alt="">
+        <h1>Nespresso Livanto</h1>
+        <h3>Intensitet: 6</h3>
+        <h3>Kopstørrelse: Espresso</h3>
+      </a></span></label></li>
+
+  <li><label for=""><span><a href="#">
+    <img src="" alt="">
+        <h1>Nespresso Capriccio</h1>
+        <h3>Intensitet: 5</h3>
+        <h3>Kopstørrelse: Espresso</h3>
+      </a>
+  </span></label></li>
+  </ul>
+  <!-- <li><label for=""><input type="checkbox"  name="" id=""><span>4</span></label></li>
+
+
 
 
 <label for="">
@@ -74,11 +102,11 @@
 <label><input id="Karamel" type="checkbox"/> Karamel</label>
 <label><input id="Te" type="checkbox"/> Te</label>
 
-<!-- <input type="checkbox"> <label for="">Syrlighed</label> -->
-</div>
+ <input type="checkbox"> <label for="">Syrlighed</label> -->
+<!-- </div> -->
+
 <button type="button" id="search" class="container__checkboxes__submit">Søg</button>
 
-<hr>
 <p id="results"></p>
 <table id="demo2"></table>
 <table id=demo></table>
@@ -166,7 +194,28 @@ var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked'
 
 
 
+var Nespresso_kapsler = [{
+  name: 'Nespresso Cosi',
+  cupsize: 'Espresso',
+  intensitet: 4,
 
+},
+  {
+    name: 'Nespresso Livanto',
+    cupsize: 'Espresso',
+    intensitet: 6
+  },
+  {
+    name: 'Capriccio',
+    cupsize: 'Espresso',
+    intensitet: 5
+  }
+];
+ for(i=0;i<Object.keys(Nespresso_kapsler).length; i++){
+
+//testtable += "<article><a href='#'>"+"<h1>"+Nespresso_kapsler[i].name + "</h1>"+ "<p>"+Nespresso_kapsler[i].cupsize+"</p>"+Nespresso_kapsler[i].intensitet +"</a></article>";
+
+}
 
 // console.log(x[i].getElementsByTagName('specialPrice'));
     for (i = 0; i <x.length; i++) {
@@ -180,8 +229,6 @@ var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked'
     // console.log(n.innerHTML);
     // });
     //
-
-
 
       let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
       let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
@@ -247,14 +294,11 @@ listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
 //     }
 //   }
 // }
-if(Mild.selected){
-  styrke[0] === 1 && styrke[0] === 2 && styrke[0]=== 3
-  console.log(x[i])
-}
 
-test1 = x[i].innerHTML.includes(valgtstørrelse);
 
-// console.log()
+// test1 = x[i].innerHTML.includes(valgtstørrelse);
+//
+// // console.log()
 // if(test1 === true){
 // // if(test2 == "1"){
 // //
@@ -269,29 +313,31 @@ test1 = x[i].innerHTML.includes(valgtstørrelse);
 //
 // }
 
-mild = ["1", "2", "3"];
-medium = ["4", "5", "6"];
-stærk = ["7", "8", "9", "10"];
-var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].value;
-var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+//
+// var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].text;
+// var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+// var kopstyrke = document.getElementById("styrke")
+//
+// //  Filter størrelse og styrke
+// if(typeof x[i].childNodes[12] !== "undefined"){
+// kopstørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
+// if(kopstørrelse){
+//
+// if(kopstyrke.selected === "Mild"){
+// console.log("test")
+// if(styrke[0] <=5 ){
+// console.log(xmlDoc.getElementsByTagName("item")[i])
+// }}}
+// if(kopstørrelse){
+// if(kopstyrke.selected === "Medium"){
+// if(styrke[0]>5){
+//   if(styrke[0]< 7){
+// console.log(xmlDoc.getElementsByTagName("item")[i])
+//
+// }}}}}
 
-//    Filter størrelse og styrke
-if(typeof x[i].childNodes[12] !== "undefined"){
-lungostørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
-if(lungostørrelse === true){
-// if(styrke[0] === valgtstyrke){
-  // if(valgtstørrelse === "1"){
- if(styrke[0]<5 ){
-console.log(xmlDoc.getElementsByTagName("item")[i])
-}
-}
-else if(valgtstørrelse === 2){
-if(styrke[0] >5 && styrke[0] <7 ){
-  console.log(xmlDoc.getElementsByTagName("item")[i])
-}}
 
 
-}
 //}
 
 
@@ -309,168 +355,168 @@ if(styrke[0] >5 && styrke[0] <7 ){
 
 
 
-
-   var ristretto = document.getElementById("Ristretto")
-   if(Ristretto.selected){
-     if(ristrettoliste === true){
-       ristrettotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-
-     }
-
-   }
-   // var lungo = document.getElementById("lungo")
-   // if(Lungo.selected){
-   //   if(lungoliste === true){
-   //     lungotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-   //       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-   //        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-   //   }
-   //
-   // }
-   var almindelig = document.getElementById("Almindelig")
-   if(Almindelig.selected){
-     if(almindeligliste === true){
-      almindeligtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
-
-   var mild = document.getElementById("Mild")
-   if(Mild.selected){
-     if(styrke[0] <5){
-       if(typeof styrke !== "undefined"){
-      mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }}
-   var Medium = document.getElementById("Medium")
-   if(Medium.selected){
-     if(styrke[0] >=5 && styrke[0] <=7 ){
-       if(typeof styrke !== "undefined"){
-      mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }}
-   var stærk = document.getElementById("stærk")
-   if(Stærk.selected){
-     if(styrke[0] >=8 ){
-       if(typeof styrke !== "undefined"){
-      strongtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }}
-
-   if(Espresso.selected){
-     if(espressoliste === true){
-       espressotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-          if(Te.checked){
-            if(telist === true){
-              tetable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-                "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-                 "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-                               }
-                        }
-    if(Aromatisk.checked){
-      if(aromatisklist === true){
-        aromatisktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-                                }
-
-                         }
-
-var frugtig = document.getElementById("Frugtig")
-if(Frugtig.checked){
-  if(frugtigliste === true){
-    frugtigtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-  }
-
-}
-
-var aromatisk = document.getElementById("Aromatisk")
-
-var karamel = document.getElementById("Karamel")
-if(Karamel.checked){
-  if(karamelliste === true){
-    karameltable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-  }
-
-}
-
-   var bigpack = document.getElementById("Bigpack")
-   if(Bigpack.checked){
-     if(bigpacklist === true){
-       bigpacktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
-
-   var dark = document.getElementById("Dark")
-   if(Dark.checked){
-     if(darklist === true){
-       darktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
-   var koffeinfri = document.getElementById("Koffeinfri")
-   if(Koffeinfri.checked){
-     if(koffeinfrilist === true){
-       Koffeinfritable +="<article class='article"+i+" test'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
-
-   var tilbehør = document.getElementById("Tilbehør")
-   if(Tilbehør.checked){
-     if(tilbehørlist === true){
-       tilbehørtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-         "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-          "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-     }
-
-   }
-
-
-// if(checkboxcounter == 9){
-//   table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
-//     "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-//      "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//
+//    var ristretto = document.getElementById("Ristretto")
+//    if(Ristretto.selected){
+//      if(ristrettoliste === true){
+//        ristrettotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//
+//      }
+//
+//    }
+//    // var lungo = document.getElementById("lungo")
+//    // if(Lungo.selected){
+//    //   if(lungoliste === true){
+//    //     lungotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//    //       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//    //        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//    //   }
+//    //
+//    // }
+//    var almindelig = document.getElementById("Almindelig")
+//    if(Almindelig.selected){
+//      if(almindeligliste === true){
+//       almindeligtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }
+//
+//    var mild = document.getElementById("Mild")
+//    if(Mild.selected){
+//      if(styrke[0] <5){
+//        if(typeof styrke !== "undefined"){
+//       mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }}
+//    var Medium = document.getElementById("Medium")
+//    if(Medium.selected){
+//      if(styrke[0] >=5 && styrke[0] <=7 ){
+//        if(typeof styrke !== "undefined"){
+//       mildtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }}
+//    var stærk = document.getElementById("stærk")
+//    if(Stærk.selected){
+//      if(styrke[0] >=8 ){
+//        if(typeof styrke !== "undefined"){
+//       strongtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }}
+//
+//    if(Espresso.selected){
+//      if(espressoliste === true){
+//        espressotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//           if(Te.checked){
+//             if(telist === true){
+//               tetable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//                 "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//                  "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//                                }
+//                         }
+//     if(Aromatisk.checked){
+//       if(aromatisklist === true){
+//         aromatisktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//           "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//            "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//                                 }
+//
+//                          }
+//
+// var frugtig = document.getElementById("Frugtig")
+// if(Frugtig.checked){
+//   if(frugtigliste === true){
+//     frugtigtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//   }
+//
 // }
-
-var organic = document.getElementById("Organic")
-if(organic.checked){
-  if(organiclist === true){
-    organictable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-      "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-       "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-  }
-
-}
-}
-
-}
+//
+// var aromatisk = document.getElementById("Aromatisk")
+//
+// var karamel = document.getElementById("Karamel")
+// if(Karamel.checked){
+//   if(karamelliste === true){
+//     karameltable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//   }
+//
+// }
+//
+//    var bigpack = document.getElementById("Bigpack")
+//    if(Bigpack.checked){
+//      if(bigpacklist === true){
+//        bigpacktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }
+//
+//    var dark = document.getElementById("Dark")
+//    if(Dark.checked){
+//      if(darklist === true){
+//        darktable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }
+//    var koffeinfri = document.getElementById("Koffeinfri")
+//    if(Koffeinfri.checked){
+//      if(koffeinfrilist === true){
+//        Koffeinfritable +="<article class='article"+i+" test'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }
+//
+//    var tilbehør = document.getElementById("Tilbehør")
+//    if(Tilbehør.checked){
+//      if(tilbehørlist === true){
+//        tilbehørtable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//      }
+//
+//    }
+//
+//
+// // if(checkboxcounter == 9){
+// //   table += "<article id='article"+i+"'>" + "<a href='"+a+"'>" +
+// //     "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+// //      "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+// // }
+//
+// var organic = document.getElementById("Organic")
+// if(organic.checked){
+//   if(organiclist === true){
+//     organictable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+//       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+//        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+//   }
+//
+// }
+// }
+//
+// }
 // document.getElementsByClassName("specialprice").innerHTML = price;
 
 
