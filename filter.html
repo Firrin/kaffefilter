@@ -9,37 +9,89 @@
 </head>
 <body>
 <!-- <header><img src="images/header.jpg" alt=""></header> -->
+
+
+
+
 <section class="container">
+<!-- https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166-->
 
- <ul>
-<li><label for=""><span><a id="Cosi" href="https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166">
-<img src="" alt="">
-    <h1>Nespresso Cosi</h1>
-    <h3>Intensitet: 4</h3>
-    <h3>Kopstørrelse: Espresso</h3>
+
+ <ul id="listitem">
+<h3>Ristretto</h3>
+   <li  class="btn"><label for=""><span><a id="Cosi" href="#">
+   <img src="images/placeholder.png" alt="" class="image">
+       <h3>Nespresso Kazaar</h3>
+       <h5>Intensitet: 12</h5>
+       <h5>Kopstørrelse: Ristretto, Espresso </h5>
+     </a>
+</span></label></li>
+<li  class="btn"><label for=""><span><a id="Cosi" href="#">
+<img src="images/placeholder.png" alt="" class="image">
+    <h3>Nespresso Dharkan</h3>
+    <h5>Intensitet: 11</h5>
+    <h5>Kopstørrelse: Ristretto, Espresso </h5>
   </a>
+</span></label></li>
+<li  class="btn"><label for=""><span><a id="Cosi" href="#">
+<img src="images/placeholder.png" alt="" class="image">
+    <h3>Nespresso Roma</h3>
+    <h5>Intensitet: 8</h5>
+    <h5>Kopstørrelse: Ristretto, Espresso </h5>
+  </a>
+</span></label></li>
+<h3>Espresso</h3>
 
+<li  class="btn"><label for=""><span><a id="Cosi" href="#">
+<img src="images/placeholder.png" alt="" class="image">
+    <h3>Nespresso Cosi</h3>
+    <h5>Intensitet: 4</h5>
+    <h5>Kopstørrelse: Espresso</h5>
+  </a>
+<!--https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166-->
   </span></label></li>
-  <li><label for=""><span><a id="livanto" href="https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166">
-    <img src="" alt="">
-        <h1>Nespresso Livanto</h1>
-        <h3>Intensitet: 6</h3>
-        <h3>Kopstørrelse: Espresso</h3>
+  <li class="btn"><label for=""><span><a id="livanto" href="#">
+    <img src="images/placeholder.png" alt="" class="image">
+        <h3>Nespresso Livanto</h3>
+        <h5>Intensitet: 6</h5>
+        <h5>Kopstørrelse: Espresso</h5>
       </a></span></label></li>
 
-  <li><label for=""><span><a href="#">
-    <img src="" alt="">
-        <h1>Nespresso Capriccio</h1>
-        <h3>Intensitet: 5</h3>
-        <h3>Kopstørrelse: Espresso</h3>
+  <li class="btn"><label for=""><span><a href="#">
+    <img src="images/placeholder.png" alt="" class="image">
+        <h3>Nespresso Capriccio</h3>
+        <h5>Intensitet: 5</h5>
+        <h5>Kopstørrelse: Espresso</h5>
       </a>
   </span></label></li>
-  </ul>
-  <!-- <li><label for=""><input type="checkbox"  name="" id=""><span>4</span></label></li>
+
+<h3>Lungo</h3>
+<li class="btn"><label for=""><span><a href="#">
+  <img src="images/placeholder.png" alt="" class="image">
+      <h3>Nespresso Envivo</h3>
+      <h5>Intensitet: 9</h5>
+      <h5>Kopstørrelse: Lungo</h5>
+    </a>
+</span></label></li>
+<li class="btn"><label for=""><span><a href="#">
+  <img src="images/placeholder.png" alt="" class="image">
+      <h3>Nespresso Fortissio</h3>
+      <h5>Intensitet: 8</h5>
+      <h5>Kopstørrelse: Lungo</h5>
+    </a>
+</span></label></li>
+<li class="btn"><label for=""><span><a href="#">
+  <img src="images/placeholder.png" alt="" class="image">
+      <h3>Nespresso Linizio</h3>
+      <h5>Intensitet: 4</h5>
+      <h5>Kopstørrelse: Lungo</h5>
+    </a>
+</span></label></li>
 
 
-
-
+</ul>
+<button type="button" id="search" class="container__checkboxes__submit">Søg</button>
+<!-- <li><label for=""><input type="checkbox"  name="" id=""><span>4</span></label></li>
 <label for="">
   <select id="styrke" class="" name="">
   <option >Styrke</option>
@@ -105,7 +157,7 @@
  <input type="checkbox"> <label for="">Syrlighed</label> -->
 <!-- </div> -->
 
-<button type="button" id="search" class="container__checkboxes__submit">Søg</button>
+
 
 <p id="results"></p>
 <table id="demo2"></table>
@@ -114,176 +166,199 @@
 </section>
 <script>
 
+
+// Add active class to the current button (highlight it)
+linksarray = ["https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_264&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_263&type_drink=166"]
+
+var header = document.getElementById("listitem");
+var btns = header.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    if (current.length > 0) {
+      current[0].className = current[0].className.replace(" active", "");
+    }
+    this.className += " active";
+  });
+}
+
 document.getElementById("search").addEventListener("click", function(){
-
-loadXMLDoc();
-
+  for (var i = 0; i < btns.length; i++){
+if(document.getElementsByTagName("li")[i].className == "btn active"){
+  window.location = linksarray[i];
+}
+}
 });
 
-function loadXMLDoc(){
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    resultcount(this);
-    myFunction(this);
-    }
-};
-xhttp.open("GET", "productFeedForNespresso.xml", true);
-xhttp.send();
-};
+
+// loadXMLDoc();
+//
+// });
+//
+// function loadXMLDoc(){
+// var xhttp = new XMLHttpRequest();
+// xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//     resultcount(this);
+//     myFunction(this);
+//     }
+// };
+// xhttp.open("GET", "productFeedForNespresso.xml", true);
+// xhttp.send();
+// };
 
 
 //      ||
 
 
-
-function myFunction(xml) {
-  let i;
-  let xmlDoc = xml.responseXML;
-  let table = "";
-  let organictable ="";
-  let tilbehørtable ="";
-  let Koffeinfritable ="";
-  let bigpacktable ="";
-  let aromatisktable ="";
-  let tetable ="";
-  let darktable ="";
-  let karameltable="";
-  let frugtigtable ="";
-  let ristrettotable="";
-  let espressotable ="";
-  let lungotable ="";
-  let almindeligtable ="";
-  let mildtable ="";
-  let mediumtable ="";
-  let strongtable ="";
-  let testtable="";
-  let x = xmlDoc.getElementsByTagName("item");
-  let sprice = xmlDoc.getElementsByTagName("specialPrice");
-  // let cities = sprice.filter(val => {
-  //   return val !== "undefined";
-  // });
-
-  // if (sprice.textContent !== "undefined"){
-  // // var nodeList = sprice.textContent;
-  // // var nodeArray = [];
-  // // for ( i = 0; i < nodeList.length; ++i) {
-  // //   nodeArray[i] = nodeList[i];
-  // //   console.log(nodeArray);
-//    var myNodeList = xmlDoc.getElementsByTagName("specialPrice");
-// var myArrayFromNodeList = []; // empty at first
-// for (i = 0; i < myNodeList.length; i++) {
-//   myArrayFromNodeList.push(myNodeList[i]); // ahhh, push it
-// }
-// console.log(myNodeList); // NodeList
-// console.log(myArrayFromNodeList); // Array of Nodes
-//   var filtered = sprice.filter(function (el) {
-//     sprice !=="undefined"
-// });
-// var data = [parseFloat(sprice[0].textContent).toFixed(2)];
-// data = data.filter(function(element) {
-//    return element !== undefined;
-// });
-
-// console.log(data);
-// var newArray = x[i].getElementsByTagName('specialPrice').filter(function(item) {
-//   return x[i].getElementsByTagName('specialPrice') !== "";
-// });
-
-var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked').length;
-
-
-
-var Nespresso_kapsler = [{
-  name: 'Nespresso Cosi',
-  cupsize: 'Espresso',
-  intensitet: 4,
-
-},
-  {
-    name: 'Nespresso Livanto',
-    cupsize: 'Espresso',
-    intensitet: 6
-  },
-  {
-    name: 'Capriccio',
-    cupsize: 'Espresso',
-    intensitet: 5
-  }
-];
- for(i=0;i<Object.keys(Nespresso_kapsler).length; i++){
-
-//testtable += "<article><a href='#'>"+"<h1>"+Nespresso_kapsler[i].name + "</h1>"+ "<p>"+Nespresso_kapsler[i].cupsize+"</p>"+Nespresso_kapsler[i].intensitet +"</a></article>";
-
-}
-
-// console.log(x[i].getElementsByTagName('specialPrice'));
-    for (i = 0; i <x.length; i++) {
-      let nodelist = x[i].getElementsByTagName('specialPrice');
-      let priselist = x[i].getElementsByTagName("price");
-      let strengthlist = x[i].getElementsByTagName("styrke");
-      let egenskablist = x[i].getElementsByTagName("egenskaber");
-      let sizelist = x[i].getElementsByTagName("cupsize");
-
-    // let newArray =  Array.prototype.map.call( nodelist, function(n){
-    // console.log(n.innerHTML);
-    // });
-    //
-
-      let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
-      let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
-      let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
-      let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
-      let sprice = x[i].getElementsByTagName("specialPrice");
-      texts = Array.from(nodelist, node => node.textContent);
-      newArray = Array.from(priselist, pris => pris.textContent);
-      styrke = Array.from(strengthlist, strength => strength.textContent);
-      egenskab = Array.from(egenskablist, egenskab => egenskab.textContent);
-      cupsize = Array.from(sizelist, size => size.textContent);
-    let items = Array.from(x, item => item.childNodes);   //
-      xlist = Array.from(x, items => x);
-      espresso = cupsize.filter(cupsize => x == "Espresso" || xlist == "Ristretto,Espresso,Lungo" );
-      organicFilter = items.filter(items => items == "Komposterbar,Økologisk");
-      organiclist = x[i].innerHTML.includes("Økologisk");
-      // organicfilterX = x.filter(x => x == "Komposterbar,Økologisk");
-
-tilbehørlist = x[i].innerHTML.includes("Tilbehør");
-koffeinfrilist = x[i].innerHTML.includes("Koffeinfri");
-bigpacklist = x[i].innerHTML.includes("Big pack");
-aromatisklist = x[i].innerHTML.includes("Aromatisk");
-telist = x[i].innerHTML.includes(" te");
-darklist = x[i].innerHTML.includes("Mørkristede");
-karamelliste = x[i].innerHTML.includes("Karamel");
-frugtigliste = x[i].innerHTML.includes("Frugt");
-ristrettoliste = x[i].innerHTML.includes("Ristretto");
-espressoliste = x[i].innerHTML.includes("Espresso");
-lungoliste = x[i].innerHTML.includes("Lungo");
-almindeligliste = x[i].innerHTML.includes("Almindelig");
-
-testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
-
-arrayoflist = ["organiclist","frugtigliste", "darklist", "aromatisklist", "tilbehørlist","bigpacklist", "koffeinfrilist","karamelliste", "telist", "ristrettoliste", "espressoliste", "almindeligliste"];
-inputarray = ["Organic", "Frugtig", "Dark", "Aromatisk", "Tilbehør", "Bigpack", "Koffeinfri", "Karamel", "Te"]
-    //special price to price when specialprice is undefined
-      if(typeof texts[i] === "undefined") {
-          texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
-
-   }
-// if(typeof xmlDoc.getElementsByTagName("styrke")[i].innerHTML!== "undefined" && typeof xmlDoc.getElementsByTagName("cupsize")[i].innerHTML !== "undefined"){
-//     styrke4 = xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4");
-// if(Lungo.selected){
-//      if(xmlDoc.getElementsByTagName("cupsize")[i].innerHTML.includes("Lungo") === true){
-//   if(Mild.selected){
-//     if(styrke == 4){
-//         console.log(x[i])
-//     }
+//
+// function myFunction(xml) {
+//   let i;
+//   let xmlDoc = xml.responseXML;
+//   let table = "";
+//   let organictable ="";
+//   let tilbehørtable ="";
+//   let Koffeinfritable ="";
+//   let bigpacktable ="";
+//   let aromatisktable ="";
+//   let tetable ="";
+//   let darktable ="";
+//   let karameltable="";
+//   let frugtigtable ="";
+//   let ristrettotable="";
+//   let espressotable ="";
+//   let lungotable ="";
+//   let almindeligtable ="";
+//   let mildtable ="";
+//   let mediumtable ="";
+//   let strongtable ="";
+//   let testtable="";
+//   let x = xmlDoc.getElementsByTagName("item");
+//   let sprice = xmlDoc.getElementsByTagName("specialPrice");
+//   // let cities = sprice.filter(val => {
+//   //   return val !== "undefined";
+//   // });
+//
+//   // if (sprice.textContent !== "undefined"){
+//   // // var nodeList = sprice.textContent;
+//   // // var nodeArray = [];
+//   // // for ( i = 0; i < nodeList.length; ++i) {
+//   // //   nodeArray[i] = nodeList[i];
+//   // //   console.log(nodeArray);
+// //    var myNodeList = xmlDoc.getElementsByTagName("specialPrice");
+// // var myArrayFromNodeList = []; // empty at first
+// // for (i = 0; i < myNodeList.length; i++) {
+// //   myArrayFromNodeList.push(myNodeList[i]); // ahhh, push it
+// // }
+// // console.log(myNodeList); // NodeList
+// // console.log(myArrayFromNodeList); // Array of Nodes
+// //   var filtered = sprice.filter(function (el) {
+// //     sprice !=="undefined"
+// // });
+// // var data = [parseFloat(sprice[0].textContent).toFixed(2)];
+// // data = data.filter(function(element) {
+// //    return element !== undefined;
+// // });
+//
+// // console.log(data);
+// // var newArray = x[i].getElementsByTagName('specialPrice').filter(function(item) {
+// //   return x[i].getElementsByTagName('specialPrice') !== "";
+// // });
+//
+// var checkboxcounter = document.querySelectorAll('input[type="checkbox"]:checked').length;
+//
+//
+//
+// var Nespresso_kapsler = [{
+//   name: 'Nespresso Cosi',
+//   cupsize: 'Espresso',
+//   intensitet: 4,
+//
+// },
+//   {
+//     name: 'Nespresso Livanto',
+//     cupsize: 'Espresso',
+//     intensitet: 6
+//   },
+//   {
+//     name: 'Capriccio',
+//     cupsize: 'Espresso',
+//     intensitet: 5
+//   }
+// ];
+//  for(i=0;i<Object.keys(Nespresso_kapsler).length; i++){
+// //testtable += "<article><a href='#'>"+"<h1>"+Nespresso_kapsler[i].name + "</h1>"+ "<p>"+Nespresso_kapsler[i].cupsize+"</p>"+Nespresso_kapsler[i].intensitet +"</a></article>";
+// console.log()
 // }
 //
-// }}
-//}
-størrelser = ["Ristretto", "Espresso", "Lungo", "Almindelig"];
-styrker = ["Mild", "Normal", "stærk"]
-listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
+//
+// // console.log(x[i].getElementsByTagName('specialPrice'));
+//     for (i = 0; i <x.length; i++) {
+//       let nodelist = x[i].getElementsByTagName('specialPrice');
+//       let priselist = x[i].getElementsByTagName("price");
+//       let strengthlist = x[i].getElementsByTagName("styrke");
+//       let egenskablist = x[i].getElementsByTagName("egenskaber");
+//       let sizelist = x[i].getElementsByTagName("cupsize");
+//
+//     // let newArray =  Array.prototype.map.call( nodelist, function(n){
+//     // console.log(n.innerHTML);
+//     // });
+//     //
+//
+//       let price = parseFloat(x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue).toFixed(2);
+//       let title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+//       let a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+//       let img = x[i].getElementsByTagName("image_link")[0].childNodes[0].nodeValue;
+//       let sprice = x[i].getElementsByTagName("specialPrice");
+//       texts = Array.from(nodelist, node => node.textContent);
+//       newArray = Array.from(priselist, pris => pris.textContent);
+//       styrke = Array.from(strengthlist, strength => strength.textContent);
+//       egenskab = Array.from(egenskablist, egenskab => egenskab.textContent);
+//       cupsize = Array.from(sizelist, size => size.textContent);
+//     let items = Array.from(x, item => item.childNodes);   //
+//       xlist = Array.from(x, items => x);
+//       espresso = cupsize.filter(cupsize => x == "Espresso" || xlist == "Ristretto,Espresso,Lungo" );
+//       organicFilter = items.filter(items => items == "Komposterbar,Økologisk");
+//       organiclist = x[i].innerHTML.includes("Økologisk");
+//       // organicfilterX = x.filter(x => x == "Komposterbar,Økologisk");
+//
+// tilbehørlist = x[i].innerHTML.includes("Tilbehør");
+// koffeinfrilist = x[i].innerHTML.includes("Koffeinfri");
+// bigpacklist = x[i].innerHTML.includes("Big pack");
+// aromatisklist = x[i].innerHTML.includes("Aromatisk");
+// telist = x[i].innerHTML.includes(" te");
+// darklist = x[i].innerHTML.includes("Mørkristede");
+// karamelliste = x[i].innerHTML.includes("Karamel");
+// frugtigliste = x[i].innerHTML.includes("Frugt");
+// ristrettoliste = x[i].innerHTML.includes("Ristretto");
+// espressoliste = x[i].innerHTML.includes("Espresso");
+// lungoliste = x[i].innerHTML.includes("Lungo");
+// almindeligliste = x[i].innerHTML.includes("Almindelig");
+//
+// testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
+//
+// arrayoflist = ["organiclist","frugtigliste", "darklist", "aromatisklist", "tilbehørlist","bigpacklist", "koffeinfrilist","karamelliste", "telist", "ristrettoliste", "espressoliste", "almindeligliste"];
+// inputarray = ["Organic", "Frugtig", "Dark", "Aromatisk", "Tilbehør", "Bigpack", "Koffeinfri", "Karamel", "Te"]
+//     //special price to price when specialprice is undefined
+//       if(typeof texts[i] === "undefined") {
+//           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
+//
+//    }
+// // if(typeof xmlDoc.getElementsByTagName("styrke")[i].innerHTML!== "undefined" && typeof xmlDoc.getElementsByTagName("cupsize")[i].innerHTML !== "undefined"){
+// //     styrke4 = xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4");
+// // if(Lungo.selected){
+// //      if(xmlDoc.getElementsByTagName("cupsize")[i].innerHTML.includes("Lungo") === true){
+// //   if(Mild.selected){
+// //     if(styrke == 4){
+// //         console.log(x[i])
+// //     }
+// // }
+// //
+// // }}
+// //}
+// størrelser = ["Ristretto", "Espresso", "Lungo", "Almindelig"];
+// styrker = ["Mild", "Normal", "stærk"]
+// listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
 
 // if(valgtstørrelse === størrelser[0]){
 //     if(valgtstyrke === styrker[0]){
@@ -523,49 +598,49 @@ listoflists =["ristrettoliste", "espressoliste", "lungoliste"]
 
 
 
-
-
-//splice til at fjerne alle undtagen 1 fra array
-};
-document.getElementById("demo2").innerHTML = table;
-finaltable = document.getElementById("demo").innerHTML = organictable + tilbehørtable + Koffeinfritable+bigpacktable+aromatisktable+tetable+darktable+karameltable+frugtigtable+ristrettotable+espressotable+lungotable+almindeligtable+mildtable+mediumtable+strongtable+testtable;
-//console.log(document.querySelectorAll("article")[83].classList.value)
 //
-// if(Koffeinfritable = bigpacktable ){
-//   console.log("hej")
-// }
-// if(document.querySelectorAll("article"))
-
-for(i=0; i<x.length; i++){
-if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
-
-
-
-  dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
-  dublicatearray.splice(1)
-
-}}
-
+//
+// //splice til at fjerne alle undtagen 1 fra array
+// };
+// document.getElementById("demo2").innerHTML = table;
+// finaltable = document.getElementById("demo").innerHTML = organictable + tilbehørtable + Koffeinfritable+bigpacktable+aromatisktable+tetable+darktable+karameltable+frugtigtable+ristrettotable+espressotable+lungotable+almindeligtable+mildtable+mediumtable+strongtable+testtable;
+// //console.log(document.querySelectorAll("article")[83].classList.value)
+// //
+// // if(Koffeinfritable = bigpacktable ){
+// //   console.log("hej")
+// // }
+// // if(document.querySelectorAll("article"))
+//
 // for(i=0; i<x.length; i++){
 // if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
 //
-// dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
-// dublicatearray.splice(1)
-// console.log(dublicatearray)
-
-//
-// // dublicatearray.toString().innerHTML = document.getElementsByClassName("article"+i+"")
-// // console.log(dublicatearray.toString());
-// // document.getElementsByClassName("article"+i+"") = dublicatearray;
-// }
-// //console.log(document.querySelectorAll("article")[i].classList[0])
-// // console.log(document.getElementsByClassName("article"+i+""))
 //
 //
-//    //  console.log(document.getElementsByClassName("article101"))
-// }
-
-};
+//   dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
+//   dublicatearray.splice(1)
+//
+// }}
+//
+// // for(i=0; i<x.length; i++){
+// // if(document.getElementsByClassName("article"+i+"").length >=2 && document.getElementsByClassName("article"+i+"")!== "undefined"){  //get all dublicates
+// //
+// // dublicatearray = Array.from(document.getElementsByClassName("article"+i+""));
+// // dublicatearray.splice(1)
+// // console.log(dublicatearray)
+//
+// //
+// // // dublicatearray.toString().innerHTML = document.getElementsByClassName("article"+i+"")
+// // // console.log(dublicatearray.toString());
+// // // document.getElementsByClassName("article"+i+"") = dublicatearray;
+// // }
+// // //console.log(document.querySelectorAll("article")[i].classList[0])
+// // // console.log(document.getElementsByClassName("article"+i+""))
+// //
+// //
+// //    //  console.log(document.getElementsByClassName("article101"))
+// // }
+//
+// };
 
 
 

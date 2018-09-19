@@ -61,6 +61,24 @@ table{
 text-align:center;
 
 }
+.mystyle{
+  background-color: #333;
+
+}
+.btn {
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+li.btn{
+  max-width: 200px;
+}
+.active, .btn:hover {
+    background-color: #666;
+    color: white;
+}
 article{
   display: inline-block;
   max-height: 305px;
@@ -68,20 +86,26 @@ article{
   padding: 0 15px 15px 0;
   break-after: avoid;
 }
+h3{
+  margin: 0;
+  font-size: 15px;
+
+
+}
+li h3{
+    text-align: center;
+}
 h5{
   overflow: hidden;
   text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
   margin: 5px 0;
+  font-size: 12px;
 }
 a{
   text-decoration: none;
   color: black;
-.display{
-  display: none;
-}
-
 }
 p.price{
   text-align: center;
@@ -92,9 +116,7 @@ p.price{
   text-align: left;
   font-weight: bold;
 }
-#1{
-  display: none;
-  }
+
 
 
 button.readmore{
