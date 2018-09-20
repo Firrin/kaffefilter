@@ -14,6 +14,7 @@ ul{
 }
 li{
   display: inline-block;
+  margin: 10px 0;
 
 }
 .container select{
@@ -47,14 +48,13 @@ line-height: 32px;
 float: right;
 }
 .image{
-  height: 175px;
+  height: 110px;
   width: 175px;
 }
 table{
   max-width: 800px;
     break-after: avoid;
     display: inline;
-
 }
 
 .specialprice{
@@ -74,10 +74,17 @@ text-align:center;
 }
 li.btn{
   max-width: 200px;
+  padding: 5px;
 }
-.active, .btn:hover {
-    background-color: #666;
+.btn:hover{
+  border: 1px solid black;
+}
+.active {
+  background-color: #c6c6c6;
     color: white;
+}
+li.btn.active{
+  color: white;
 }
 article{
   display: inline-block;
@@ -87,11 +94,11 @@ article{
   break-after: avoid;
 }
 h3{
-  margin: 0;
+  margin: 5px;
   font-size: 15px;
 
-
 }
+
 li h3{
     text-align: center;
 }
@@ -137,9 +144,4 @@ button.readmore{
 }
 button.readmore:hover{
   background: #43ad42;
-}
-
-
-select{
-  background: url('https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/icons2.png') no-repeat 87px -35px;
 }

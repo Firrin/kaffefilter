@@ -9,41 +9,37 @@
 </head>
 <body>
 <!-- <header><img src="images/header.jpg" alt=""></header> -->
-
-
-
-
 <section class="container">
 <!-- https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166-->
 
 
  <ul id="listitem">
 <h3>Ristretto</h3>
-   <li  class="btn"><label for=""><span><a id="Cosi" href="#">
-   <img src="images/placeholder.png" alt="" class="image">
+   <li class="btn"><label for=""><span><a id="Cosi" href="#">
+   <img src="images/kazaar.png" alt="" class="image">
        <h3>Nespresso Kazaar</h3>
        <h5>Intensitet: 12</h5>
        <h5>Kopstørrelse: Ristretto, Espresso </h5>
      </a>
 </span></label></li>
 <li  class="btn"><label for=""><span><a id="Cosi" href="#">
-<img src="images/placeholder.png" alt="" class="image">
+<img src="images/Dharkan.png" alt="" class="image">
     <h3>Nespresso Dharkan</h3>
     <h5>Intensitet: 11</h5>
-    <h5>Kopstørrelse: Ristretto, Espresso </h5>
+    <h5>Kopstørrelse: Ristretto, Espresso</h5>
   </a>
 </span></label></li>
 <li  class="btn"><label for=""><span><a id="Cosi" href="#">
-<img src="images/placeholder.png" alt="" class="image">
+<img src="images/Roma.png" alt="" class="image">
     <h3>Nespresso Roma</h3>
     <h5>Intensitet: 8</h5>
-    <h5>Kopstørrelse: Ristretto, Espresso </h5>
+    <h5>Kopstørrelse: Ristretto, Espresso</h5>
   </a>
 </span></label></li>
 <h3>Espresso</h3>
 
 <li  class="btn"><label for=""><span><a id="Cosi" href="#">
-<img src="images/placeholder.png" alt="" class="image">
+<img src="images/cosi.png" alt="" class="image">
     <h3>Nespresso Cosi</h3>
     <h5>Intensitet: 4</h5>
     <h5>Kopstørrelse: Espresso</h5>
@@ -51,14 +47,14 @@
 <!--https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166-->
   </span></label></li>
   <li class="btn"><label for=""><span><a id="livanto" href="#">
-    <img src="images/placeholder.png" alt="" class="image">
+    <img src="images/Livanto.png" alt="" class="image">
         <h3>Nespresso Livanto</h3>
         <h5>Intensitet: 6</h5>
         <h5>Kopstørrelse: Espresso</h5>
       </a></span></label></li>
 
   <li class="btn"><label for=""><span><a href="#">
-    <img src="images/placeholder.png" alt="" class="image">
+    <img src="images/capriccio.png" alt="" class="image">
         <h3>Nespresso Capriccio</h3>
         <h5>Intensitet: 5</h5>
         <h5>Kopstørrelse: Espresso</h5>
@@ -67,21 +63,21 @@
 
 <h3>Lungo</h3>
 <li class="btn"><label for=""><span><a href="#">
-  <img src="images/placeholder.png" alt="" class="image">
+  <img src="images/Envivo-Lungo.png" alt="" class="image">
       <h3>Nespresso Envivo</h3>
       <h5>Intensitet: 9</h5>
       <h5>Kopstørrelse: Lungo</h5>
     </a>
 </span></label></li>
 <li class="btn"><label for=""><span><a href="#">
-  <img src="images/placeholder.png" alt="" class="image">
+  <img src="images/fortissio_lungo.png" alt="" class="image">
       <h3>Nespresso Fortissio</h3>
       <h5>Intensitet: 8</h5>
       <h5>Kopstørrelse: Lungo</h5>
     </a>
 </span></label></li>
 <li class="btn"><label for=""><span><a href="#">
-  <img src="images/placeholder.png" alt="" class="image">
+  <img src="images/linizio.png" alt="" class="image">
       <h3>Nespresso Linizio</h3>
       <h5>Intensitet: 4</h5>
       <h5>Kopstørrelse: Lungo</h5>
@@ -170,13 +166,15 @@
 // Add active class to the current button (highlight it)
 linksarray = ["https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=173%2C174&styrke_ny=grind_264&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_264&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "https://www.kaffekapslen.dk/til-nespresso.html?kopstorrelse=175&styrke_ny=grind_263&type_drink=166"]
 
+
+
 var header = document.getElementById("listitem");
 var btns = header.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
   btns[i].addEventListener("click", function(){
     var current = document.getElementsByClassName("active");
     if (current.length > 0) {
-      current[0].className = current[0].className.replace(" active", "");
+      current[0].className = current[0].className.replace(" active", " ");
     }
     this.className += " active";
   });
@@ -209,8 +207,6 @@ if(document.getElementsByTagName("li")[i].className == "btn active"){
 
 
 //      ||
-
-
 //
 // function myFunction(xml) {
 //   let i;
