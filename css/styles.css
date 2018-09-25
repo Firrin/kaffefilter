@@ -1,51 +1,35 @@
-body{
 
-}
 header,img{
  max-width: 100vw;
  overflow-x: hidden;
 }
-.container{
-  max-width: 800px;
-}
+
 ul{
   list-style-type: none;
-  display: inline;
+  display: inline-block;
 }
 li{
   display: inline-block;
-  margin: 10px 0;
+  margin: 10px auto;
+ justify-content: center;
+
 
 }
-.container select{
-display: inline-block;
-margin: 0 5px 10px 0;
-width: 120px;
-position: relative;
-padding: 6px 11px;
-background: #f2edea;
-border: 1px solid #f2edea;
-}
-
-.container__checkboxes{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 600px;
-}
-
 .container__checkboxes__submit{
 color: white;
 max-width: 200px;
 background-color: #7f674d;
 border: 0 none;
 border-radius: 4px;
-margin: 15px 150px 10px 0;
+display: flex;
+justify-content: center;
+margin: 0 auto;
 padding: 0 22px;
 font-size: 15px;
 font-weight: normal;
 height: 32px;
 line-height: 32px;
-float: right;
+
 }
 .image{
   height: 110px;
@@ -56,7 +40,6 @@ table{
     break-after: avoid;
     display: inline;
 }
-
 .specialprice{
 text-align:center;
 
@@ -114,23 +97,101 @@ a{
   text-decoration: none;
   color: black;
 }
-p.price{
-  text-align: center;
-  font-weight: bold;
-  margin: 10px 0;
-}
+
+
 #results{
   text-align: left;
   font-weight: bold;
 }
 
+.cups-active{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 48px 0;
+height: 20px;
+width: 22px;
+display: block;
+float: left;
+margin: 5px 2px;
+}
+.cups-1{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 0 0;
+height: 20px;
+width: 22px;
+display: block;
+float: left;
+margin: 5px 0;
+margin-right: 2px;
+}
+.cups-2{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 99px 0;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+}
+.cups-3{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 74px 0;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+}
+.cups-4{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 48px 0;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+}
+.cups-5{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 23px 0;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+}
+.cups-1-active{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 0 20px;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 0;
+  margin-right: 2px;
+}
+.cups-2-active{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 99px 20px;
+  height: 20px;
+  width: 22px;
+  display: block;
+  float: left;
+  margin: 5px 2px;
+}
+.cups-3-active{
+  background: transparent url(https://www.kaffekapslen.dk/skin/frontend/kaffekapslen/default/images/product_attributes/cups-sprite.png) 74px 20px;
+height: 20px;
+width: 22px;
+display: block;
+float: left;
+margin: 5px 2px;
+}
 
+.cups {
+text-align: center;
+margin-left: 15%;
+}
+span{
+  display: inline-block;
+}
 
 button.readmore{
   width: 97px;
   margin-left: 5px;
   height: 36px;
-  background: #369a35 no-repeat;
+  background: #369a35;
   padding: 0 0 0 6px;
   font: bold 12px/27px Arial,Helvetica,sans-serif;
   text-align: center;
@@ -144,4 +205,18 @@ button.readmore{
 }
 button.readmore:hover{
   background: #43ad42;
+}
+@media screen and (max-width: 770px){
+
+li.btn{
+  display: inline-flex;
+  max-width: 50%;
+}
+
+button.container__checkboxes__submit{
+  display: flex;
+ justify-content: center;
+ margin: 0 auto;
+
+}
 }
