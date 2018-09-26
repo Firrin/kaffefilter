@@ -10,6 +10,12 @@
 <body>
 
 <section class="container">
+  <div class="container__checkboxes">
+  <label><input name="organic" id="Organic" type="checkbox"/>Økologisk</label>
+  <label><input id="Aluminium" type="checkbox"/>Aluminium</label>
+  <label><input id="Bigpack" type="checkbox"/>Big Pack</label>
+  </<div>
+
  <ul id="listitem">
 <h3>Ristretto</h3>
    <li class="btn"><label for=""><span><a id="Cosi" href="#">
@@ -329,7 +335,29 @@ for (var i = 0; i < btns.length; i++) {
 document.getElementById("search").addEventListener("click", function(){
   for (var i = 0; i < btns.length; i++){
 if(document.getElementsByTagName("li")[i].className == "btn active"){
-  window.location = "https://www.kaffekapslen.dk/til-nespresso.html" + linksarray[i];
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html" +linksarray[i];
+if(document.getElementById("Organic").checked){
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"&egenskab=288";
+}
+if(document.getElementById("Aluminium").checked){
+  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+ "&egenskab=356";
+}
+if(document.getElementById("Bigpack").checked){
+  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=325";
+}
+
+if(document.getElementById("Organic").checked && document.getElementById("Aluminium").checked){
+window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C356";
+
+}
+if(document.getElementById("Organic").checked && document.getElementById("Bigpack").checked){
+  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C325";
+}
+if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked){
+  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=356%2C325";
+}
+if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked && document.getElementById("Organic").checked){
+  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356"
 }
 }
 });
