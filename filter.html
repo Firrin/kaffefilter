@@ -10,13 +10,15 @@
 <body>
 
 <section class="container">
-  <div class="container__checkboxes">
-  <label><input name="organic" id="Organic" type="checkbox"/>Økologisk</label>
-  <label><input id="Aluminium" type="checkbox"/>Aluminium</label>
-  <label><input id="Bigpack" type="checkbox"/>Big Pack</label>
-  </<div>
+
 
  <ul id="listitem">
+   <div class="container__checkboxes">
+   <label><input name="organic" id="Organic" type="checkbox"/>Økologiske kapsler</label>
+   <label><input id="Aluminium" type="checkbox"/>Aluminiumskapsler</label>
+   <label><input id="Bigpack" type="checkbox"/>Big Pack</label>
+     <!-- <label><input id="Koffeinfri" type="checkbox"/>Koffeinfri</label> -->
+   </<div>
 <h3>Ristretto</h3>
    <li class="btn"><label for=""><span><a id="Cosi" href="#">
    <img src="images/kazaar.png" alt="Nespresso Kazaar" class="image">
@@ -71,9 +73,7 @@
     </div></h5>
   </a>
 </span></label></li>
-
 <h3>Espresso</h3>
-
 <li  class="btn"><label for=""><span><a id="Cosi" href="#">
 <img src="images/cosi.png" alt="Nespresso Cosi" class="image">
     <h3>Nespresso Cosi</h3>
@@ -86,7 +86,6 @@
       <span class="cups-5"></span>
     </div></h5>
   </a>
-
   </span></label></li>
   <li class="btn"><label for=""><span><a id="livanto" href="#">
     <img src="images/Livanto.png" alt="Nespresso Livanto" class="image">
@@ -100,7 +99,6 @@
           <span class="cups-5"></span>
         </div></h5>
       </a></span></label></li>
-
   <li class="btn"><label for=""><span><a href="#">
     <img src="images/capriccio.png" alt="Nespresso Capriccio" class="image">
         <h3>Nespresso Capriccio</h3>
@@ -308,7 +306,7 @@
 
 
 
-<p id="results"></p>
+<!-- <p id="results"></p> -->
 
 </section>
 
@@ -320,12 +318,12 @@ linksarray = ["?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?ko
 
 
 
-var header = document.getElementById("listitem");
-var btns = header.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
+var items = document.getElementById("listitem");
+var btns = items.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++){
   btns[i].addEventListener("click", function(){
     var current = document.getElementsByClassName("active");
-    if (current.length > 0) {
+    if (current.length > 0){
       current[0].className = current[0].className.replace(" active", " ");
     }
     this.className += " active";
@@ -345,10 +343,8 @@ if(document.getElementById("Aluminium").checked){
 if(document.getElementById("Bigpack").checked){
   window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=325";
 }
-
 if(document.getElementById("Organic").checked && document.getElementById("Aluminium").checked){
 window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C356";
-
 }
 if(document.getElementById("Organic").checked && document.getElementById("Bigpack").checked){
   window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C325";
@@ -359,10 +355,11 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked && document.getElementById("Organic").checked){
   window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356"
 }
+
 }
-});
+}});
 
-
+//
 // loadXMLDoc();
 //
 // });
@@ -371,6 +368,7 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // var xhttp = new XMLHttpRequest();
 // xhttp.onreadystatechange = function() {
 //     if (this.readyState == 4 && this.status == 200) {
+//
 //     resultcount(this);
 //     myFunction(this);
 //     }
@@ -429,7 +427,7 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // // data = data.filter(function(element) {
 // //    return element !== undefined;
 // // });
-//
+
 // // console.log(data);
 // // var newArray = x[i].getElementsByTagName('specialPrice').filter(function(item) {
 // //   return x[i].getElementsByTagName('specialPrice') !== "";
@@ -439,23 +437,7 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 //
 //
 //
-// var Nespresso_kapsler = [{
-//   name: 'Nespresso Cosi',
-//   cupsize: 'Espresso',
-//   intensitet: 4,
-//
-// },
-//   {
-//     name: 'Nespresso Livanto',
-//     cupsize: 'Espresso',
-//     intensitet: 6
-//   },
-//   {
-//     name: 'Capriccio',
-//     cupsize: 'Espresso',
-//     intensitet: 5
-//   }
-// ];
+
 //  for(i=0;i<Object.keys(Nespresso_kapsler).length; i++){
 // //testtable += "<article><a href='#'>"+"<h1>"+Nespresso_kapsler[i].name + "</h1>"+ "<p>"+Nespresso_kapsler[i].cupsize+"</p>"+Nespresso_kapsler[i].intensitet +"</a></article>";
 // console.log()
@@ -504,7 +486,7 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // espressoliste = x[i].innerHTML.includes("Espresso");
 // lungoliste = x[i].innerHTML.includes("Lungo");
 // almindeligliste = x[i].innerHTML.includes("Almindelig");
-//
+
 // testliste = x[i].innerHTML.includes(" te") && x[i].innerHTML.includes("Fruit")
 //
 // arrayoflist = ["organiclist","frugtigliste", "darklist", "aromatisklist", "tilbehørlist","bigpacklist", "koffeinfrilist","karamelliste", "telist", "ristrettoliste", "espressoliste", "almindeligliste"];
@@ -600,17 +582,17 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 
 
 
-//
-//    var ristretto = document.getElementById("Ristretto")
-//    if(Ristretto.selected){
-//      if(ristrettoliste === true){
-//        ristrettotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
-//          "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
-//           "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
-//
-//      }
-//
-//    }
+   //
+   // var ristretto = document.getElementById("Ristretto")
+   // if(Ristretto.selected){
+   //   if(ristrettoliste === true){
+   //     ristrettotable +="<article class='article"+i+"'>" + "<a href='"+a+"'>" +
+   //       "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" + title + "</h5>" +
+   //        "<p class='specialprice'>"+parseFloat(texts.sort()).toFixed(2) +"</p>"+ "<button class='readmore'>Læs mere</button>" +"</article>";
+   //
+   //   }
+   //
+   // }
 //    // var lungo = document.getElementById("lungo")
 //    // if(Lungo.selected){
 //    //   if(lungoliste === true){
