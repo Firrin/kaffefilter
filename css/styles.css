@@ -34,7 +34,7 @@ line-height: 32px;
   border: none;
   outline: none;
   padding: 10px 16px;
-  background-color: #f1f1f1;
+
   cursor: pointer;
 }
 li.btn{
@@ -45,15 +45,9 @@ li.btn{
   border: 1px solid black;
 }
 .active {
-  background-color: #7f674d;
-    color: white;
+  background-color: #f1f1f1;
 }
-li.btn.active{
-  color: white;
-}
-.btn.active h3{
-color: white;
-}
+
 
 h3{
   margin: 5px;

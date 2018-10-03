@@ -11,7 +11,6 @@
 
 <section class="container">
 
-
  <ul id="listitem">
    <div class="container__checkboxes">
    <label><input name="organic" id="Organic" type="checkbox"/>Økologiske kapsler</label>
@@ -304,20 +303,13 @@
  <input type="checkbox"> <label for="">Syrlighed</label> -->
 <!-- </div> -->
 
-
-
-<!-- <p id="results"></p> -->
-
 </section>
-
 <script>
 
 
 // Add active class to the current button (highlight it)
 linksarray = ["?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_264&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_264&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_263&type_drink=166", "?egenskab=290", "?egenskab=290", "?egenskab=290"]
-
-
-
+checkboxarray = ["Oranic", "Bigpack", "Aluminium", "koffeinfri"];
 var items = document.getElementById("listitem");
 var btns = items.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++){
@@ -332,32 +324,49 @@ for (var i = 0; i < btns.length; i++){
 
 document.getElementById("search").addEventListener("click", function(){
   for (var i = 0; i < btns.length; i++){
+
 if(document.getElementsByTagName("li")[i].className == "btn active"){
-  window.location = "https://www.kaffekapslen.dk/til-nespresso.html" +linksarray[i];
-if(document.getElementById("Organic").checked){
+
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i];
+if(document.getElementById("Oranic").checked){
   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"&egenskab=288";
 }
 if(document.getElementById("Aluminium").checked){
-  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+ "&egenskab=356";
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+ "&egenskab=356";
 }
 if(document.getElementById("Bigpack").checked){
-  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=325";
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=325";
 }
 if(document.getElementById("Organic").checked && document.getElementById("Aluminium").checked){
-window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C356";
+window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C356";
 }
 if(document.getElementById("Organic").checked && document.getElementById("Bigpack").checked){
-  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C325";
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=288%2C325";
 }
 if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked){
-  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=356%2C325";
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=356%2C325";
 }
 if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked && document.getElementById("Organic").checked){
-  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356"
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356"
 }
-
-}
-}});
+// if(document.getElementById("koffeinfri").checked){
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"&egenskab=XXX";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Organic").checked){
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"egenskab=XXX%2C288";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Bigpack").checked){
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=XXX%2C325";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Aluminium").checked){
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html" + linksarray[i] + "egenskab=XXX%2C356";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Organic").checked && document.getElementById("Bigpack").checked){
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=XXX%2C288%2C325";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Or"))
+// }
+}}});
 
 //
 // loadXMLDoc();
@@ -376,6 +385,31 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // xhttp.open("GET", "productFeedForNespresso.xml", true);
 // xhttp.send();
 // };
+
+// function myFunction(xml) {
+//   var i;
+//   var xmlDoc = xml.responseXML;
+//   var table="";
+//   var x = xmlDoc.getElementsByTagName("item");
+//   for (i = 0; i <x.length; i++) {
+//     var a = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+//     var img = x[i].getElementsByTagName("g:image_link")[0].childNodes[0].nodeValue;
+//     table += "<article>" + "<a href='"+a+"'>" +
+//     "<p>" + "<img class='image' src='"+img+"'>" + "<br/>" + "<h5>" +
+//     x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue + "</h5>" +
+//     x[i].getElementsByTagName("g:price")[0].childNodes[0].nodeValue +"</p></article></a>";
+//   }
+// }
+//
+// document.getElementById("demo").innerHTML = table
+//
+
+
+
+
+
+
+
 
 
 //      ||
@@ -496,17 +530,17 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 //           texts[i] = xmlDoc.getElementsByTagName("price")[i].childNodes[0].nodeValue;
 //
 //    }
-// // if(typeof xmlDoc.getElementsByTagName("styrke")[i].innerHTML!== "undefined" && typeof xmlDoc.getElementsByTagName("cupsize")[i].innerHTML !== "undefined"){
-// //     styrke4 = xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4");
-// // if(Lungo.selected){
-// //      if(xmlDoc.getElementsByTagName("cupsize")[i].innerHTML.includes("Lungo") === true){
-// //   if(Mild.selected){
-// //     if(styrke == 4){
-// //         console.log(x[i])
-// //     }
-// // }
-// //
-// // }}
+// if(typeof xmlDoc.getElementsByTagName("styrke")[i].innerHTML!== "undefined" && typeof xmlDoc.getElementsByTagName("cupsize")[i].innerHTML !== "undefined"){
+//     styrke4 = xmlDoc.getElementsByTagName("styrke")[i].innerHTML.includes("4");
+// if(Lungo.selected){
+//      if(xmlDoc.getElementsByTagName("cupsize")[i].innerHTML.includes("Lungo") === true){
+//   if(Mild.selected){
+//     if(styrke == 4){
+//         console.log(x[i])
+//     }
+// }
+//
+// }}
 // //}
 // størrelser = ["Ristretto", "Espresso", "Lungo", "Almindelig"];
 // styrker = ["Mild", "Normal", "stærk"]
@@ -544,7 +578,7 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].text;
 // var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
 // var kopstyrke = document.getElementById("styrke")
-//
+
 // //  Filter størrelse og styrke
 // if(typeof x[i].childNodes[12] !== "undefined"){
 // kopstørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
@@ -780,13 +814,11 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // // dublicatearray.splice(1)
 // // console.log(dublicatearray)
 //
-
+  var xmlDoc = xml.responseXML;
 
 function resultcount(xml) {
-    var xmlDoc = xml.responseXML;
-    x = document.getElementsByTagName('h5').length;
-    document.getElementById("results").innerHTML = "Results: " +
-    x;
+    products = document.getElementsByTagName('h5').length;
+    document.getElementById("results").innerHTML = "Resultater: " + products
 };
 
 
