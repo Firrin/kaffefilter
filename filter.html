@@ -309,26 +309,28 @@
 
 // Add active class to the current button (highlight it)
 linksarray = ["?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_264&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_264&type_drink=166", "?kopstorrelse=174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=173%2C174&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_265&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_263&type_drink=166", "?kopstorrelse=175&styrke_ny=grind_263&type_drink=166", "?egenskab=290", "?egenskab=290", "?egenskab=290"]
-checkboxarray = ["Oranic", "Bigpack", "Aluminium", "koffeinfri"];
-var items = document.getElementById("listitem");
-var btns = items.getElementsByClassName("btn");
+
+
+ checkboxarray = ["Oranic", "Bigpack", "Aluminium", "koffeinfri"];
+ egenskabarray= ["&egenskab=288", "&egenskab=325", "&egenskab=356", "&egenskab=290"];
+//
+//
+var header = document.getElementById("listitem");
+var btns = header.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++){
   btns[i].addEventListener("click", function(){
     var current = document.getElementsByClassName("active");
     if (current.length > 0){
-      current[0].className = current[0].className.replace(" active", " ");
+      current[0].className = current[0].className.replace("active", " ");
     }
     this.className += " active";
   });
 }
-
 document.getElementById("search").addEventListener("click", function(){
   for (var i = 0; i < btns.length; i++){
-
-if(document.getElementsByTagName("li")[i].className == "btn active"){
-
+if(document.getElementsByTagName("li")[i].clasname == "btn active"){
   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i];
-if(document.getElementById("Oranic").checked){
+if(document.getElementById("Organic").checked){
   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"&egenskab=288";
 }
 if(document.getElementById("Aluminium").checked){
@@ -347,25 +349,33 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] + "&egenskab=356%2C325";
 }
 if(document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked && document.getElementById("Organic").checked){
-  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356"
+  window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i] +"&egenskab=288%2C325%2C356";
 }
 // if(document.getElementById("koffeinfri").checked){
-//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"&egenskab=XXX";
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"&egenskab=290";
 // }
 // if(document.getElementById("koffeinfri").checked && document.getElementById("Organic").checked){
-//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"egenskab=XXX%2C288";
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linkarray[i]+"egenskab=290%2C288";
 // }
 // if(document.getElementById("koffeinfri").checked && document.getElementById("Bigpack").checked){
-//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=XXX%2C325";
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=290%2C325";
 // }
 // if(document.getElementById("koffeinfri").checked && document.getElementById("Aluminium").checked){
-//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html" + linksarray[i] + "egenskab=XXX%2C356";
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html" + linksarray[i] + "egenskab=290%2C356";
 // }
 // if(document.getElementById("koffeinfri").checked && document.getElementById("Organic").checked && document.getElementById("Bigpack").checked){
-//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=XXX%2C288%2C325";
+//   window.location = "https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=290%2C288%2C325";
 // }
-// if(document.getElementById("koffeinfri").checked && document.getElementById("Or"))
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Organic").checked && document.getElementById("Aluminium").checked){
+//  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=290%2C288%2C356";
 // }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked){
+//  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=290%2C356%2C325";
+// }
+// if(document.getElementById("koffeinfri").checked && document.getElementById("Aluminium").checked && document.getElementById("Bigpack").checked && document.getElementById("Organic").checked)
+//  window.location ="https://www.kaffekapslen.dk/til-nespresso.html"+linksarray[i]+"egenskab=290%2C356%2C325%2C288";
+// }
+
 }}});
 
 //
@@ -385,6 +395,18 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // xhttp.open("GET", "productFeedForNespresso.xml", true);
 // xhttp.send();
 // };
+
+
+
+
+
+
+
+
+
+
+
+
 
 // function myFunction(xml) {
 //   var i;
@@ -574,28 +596,28 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 //
 // }
 
-//
-// var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].text;
-// var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
-// var kopstyrke = document.getElementById("styrke")
 
-// //  Filter størrelse og styrke
-// if(typeof x[i].childNodes[12] !== "undefined"){
-// kopstørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
-// if(kopstørrelse){
-//
-// if(kopstyrke.selected === "Mild"){
-// console.log("test")
-// if(styrke[0] <=5 ){
-// console.log(xmlDoc.getElementsByTagName("item")[i])
-// }}}
-// if(kopstørrelse){
-// if(kopstyrke.selected === "Medium"){
-// if(styrke[0]>5){
-//   if(styrke[0]< 7){
-// console.log(xmlDoc.getElementsByTagName("item")[i])
-//
-// }}}}}
+var valgtstyrke = document.getElementById("styrke").options[document.getElementById("styrke").selectedIndex].text;
+var valgtstørrelse = document.getElementById("størrelse").options[document.getElementById("størrelse").selectedIndex].text;
+
+
+
+var kopstyrke = document.getElementById("styrke")
+
+//  Filter størrelse og styrke
+if(typeof x[i].childNodes[12] !== "undefined"){
+kopstørrelse = x[i].childNodes[12].innerHTML.includes(valgtstørrelse)
+if(kopstørrelse){
+  if(kopstyrke.selected === "Mild"){
+    if(styrke[0] <=5 ){
+}}}
+      if(kopstørrelse){
+        if(kopstyrke.selected === "Medium"){
+          if(styrke[0]>5){
+            if(styrke[0]< 7){
+
+
+}}}}}
 
 
 
@@ -814,12 +836,12 @@ if(document.getElementById("Aluminium").checked && document.getElementById("Bigp
 // // dublicatearray.splice(1)
 // // console.log(dublicatearray)
 //
-  var xmlDoc = xml.responseXML;
-
-function resultcount(xml) {
-    products = document.getElementsByTagName('h5').length;
-    document.getElementById("results").innerHTML = "Resultater: " + products
-};
+//   var xmlDoc = xml.responseXML;
+//
+// function resultcount(xml) {
+//     products = document.getElementsByTagName('h5').length;
+//     document.getElementById("results").innerHTML = "Resultater: " + products
+// };
 
 
 
